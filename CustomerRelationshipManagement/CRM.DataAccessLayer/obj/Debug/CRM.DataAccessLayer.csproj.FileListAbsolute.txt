@@ -1,0 +1,17 @@
+C:\Karthik_Madhavan\POC\MVC_Projects\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\CRM.DataAccessLayer.dll.config
+C:\Karthik_Madhavan\POC\MVC_Projects\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\CRM.DataAccessLayer.dll
+C:\Karthik_Madhavan\POC\MVC_Projects\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\CRM.DataAccessLayer.pdb
+C:\Karthik_Madhavan\POC\MVC_Projects\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\Dapper.dll
+C:\Karthik_Madhavan\POC\MVC_Projects\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\Dapper.Extension.dll
+C:\Karthik_Madhavan\POC\MVC_Projects\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\Dapper.pdb
+C:\Karthik_Madhavan\POC\MVC_Projects\CustomerRelationshipManagement\CRM.DataAccessLayer\obj\Debug\CRM.DataAccessLayer.dll
+C:\Karthik_Madhavan\POC\MVC_Projects\CustomerRelationshipManagement\CRM.DataAccessLayer\obj\Debug\CRM.DataAccessLayer.pdb
+C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\CRM.DataAccessLayer.dll.config
+C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\CRM.DataAccessLayer.dll
+C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\CRM.DataAccessLayer.pdb
+C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\Dapper.dll
+C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\Dapper.Extension.dll
+C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.DataAccessLayer\bin\Debug\Dapper.pdb
+C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.DataAccessLayer\obj\Debug\CRM.DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.DataAccessLayer\obj\Debug\CRM.DataAccessLayer.dll
+C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.DataAccessLayer\obj\Debug\CRM.DataAccessLayer.pdb

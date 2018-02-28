@@ -1,0 +1,238 @@
+﻿@model CRM.BusinessLayer.BusinessModels.CustomerDetails
+
+@{
+    ViewBag.Title = "CustomerDetails";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<div>
+    <section class="content-header">
+        <h1></h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">@Html.ActionLink("View Customer", "ViewCustomer")</li>
+        </ol>
+    </section>
+</div>
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Customer Details</h3>
+                    @*@Html.ActionLink("Create New", "NewCustomer", "Customer", null, new { @class = "btn btn-primary pull-right" })*@
+                </div>
+                <div class="box-body">
+                    <div class="col-md-12">
+                        <!-- Nav tabs --><div class="card">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#Basic" aria-controls="home" role="tab" data-toggle="tab">Basic</a></li>
+                                <li role="presentation"><a href="#Address" aria-controls="profile" role="tab" data-toggle="tab">Address</a></li>
+                                <li role="presentation"><a href="#Invoice" aria-controls="messages" role="tab" data-toggle="tab">Documents</a></li>
+                                <li role="presentation"><a href="#Payments" aria-controls="settings" role="tab" data-toggle="tab">Payments</a></li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="Basic"><br />
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="company">Company Name</label>
+                                            @*<p class="text-green">Company Name</p>*@
+                                            @Html.DisplayFor(model => model.CustomerName, new { @class = "text-green" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="PrimaryPhoneNo">Primary Phone</label>
+                                            @Html.DisplayFor(model => model.PrimaryPhoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="PrimaryMailID">Primary Email ID</label>
+                                            @Html.DisplayFor(model => model.PrimaryMailID, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Website">Website</label>
+                                            @Html.DisplayFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="PersonName">Contact Person Name</label>
+                                            @Html.DisplayFor(model => model.ContactPersonName, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="PersonNo">Contact Person No</label>
+                                            @Html.DisplayFor(model => model.ContactPersonNo, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Fax">Fax</label>
+                                            @Html.DisplayFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="Address"><br />
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="BillingAddress">Billing Address</label>
+                                            @Html.DisplayFor(model => model.BillingAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="BillingAddress1">Billing Address Line 1</label>
+                                            @Html.DisplayFor(model => model.BillingAddress1, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="BillingCity">Billing City</label>
+                                            @Html.DisplayFor(model => model.BillingCity, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="BillingState">Billing State</label>
+                                            @Html.DisplayFor(model => model.BillingState, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="BillingCountry">Billing Country</label>
+                                            @Html.DisplayFor(model => model.BillingCountry, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="BillingPincode">Billing Pincode</label>
+                                            @Html.DisplayFor(model => model.BillingPincode, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="ShippingAddress">Shipping Address</label>
+                                            @Html.DisplayFor(model => model.ShippingAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ShippingAddress1">Shipping Address Line1</label>
+                                            @Html.DisplayFor(model => model.ShippingAddress1, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ShippingCity">Shipping City</label>
+                                            @Html.DisplayFor(model => model.ShippingCity, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ShippingState">Shipping State</label>
+                                            @Html.DisplayFor(model => model.ShippingState, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ShippingCountry">Shipping Country</label>
+                                            @Html.DisplayFor(model => model.ShippingCountry, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ShippingPincode">Shipping Pincode</label>
+                                            @Html.DisplayFor(model => model.ShippingPincode, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+
+                                        </div>
+                                    </div>
+                                <div role="tabpanel" class="tab-pane" id="Invoice"><br />
+                                    @using (Html.BeginForm("CustomerFileUpload", "Customer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        @Html.HiddenFor(model => model.CustomerID)
+                                        <input type="hidden" name="customerID" value=@ViewBag.custID />
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Customer KYC Documents</h3>
+                                            <input type="submit" value="Upload" class="btn btn-primary pull-right" />
+                                        </div>
+                                        <br />
+                                        <input type="file" name="file" id="file" /><br><br>
+                                        <br><br>
+                                        @ViewBag.Message
+                                        <table class="table table-bordered table-hover">
+                                            <tr>
+                                                <th>Doc Name</th>
+                                                <th>Doc Type</th>
+                                                <th>View</th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Company Agrmnt
+                                                </td>
+                                                <td>
+                                                    PDF
+                                                </td>
+                                                <td>
+                                                    <a href="https://www.google.com/" target="someFrame" onclick="loadDoc('C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRMPresentation\compDoc\sample_PDF.PDF')">Comp Agr</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Contract Details
+                                                </td>
+                                                <td>
+                                                    PDF
+                                                </td>
+                                                <td>
+                                                    <a href="" target="_self" onclick="loadDoc('C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRMPresentation\compDoc\sample_PDF.PDF')">Contract</a>
+                                                </td>
+                                            </tr>
+                                            </table>
+                                            }
+</div>
+                                <div role="tabpanel" class="tab-pane" id="Payments"><br />
+                                    <h3>No Payments</h3>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                  
+
+                </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    <div class="modal fade test" id="modal-default-1">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:950px;margin-left:-90px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">View Document</h4>
+                </div>
+                <div class="popmodal-body">
+                    @*<iframe name="someFrame" id="someFrame" width="900" src="http://docs.google.com/gview?url=http://infolab.stanford.edu/pub/papers/google.pdf&embedded=true"></iframe>*@
+                    <iframe id="someFrame" style="width:600px; height:500px;" frameborder="0" ></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+   <style type="text/css">
+
+       /*.nav-tabs { border-bottom: 2px solid #DDD; }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
+    .nav-tabs > li > a { border: none; color: #666; }
+        .nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #4285F4 !important; background: transparent; }
+        .nav-tabs > li > a::after { content: ""; background: #4285F4; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
+    .nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
+.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
+.tab-pane { padding: 15px 0; }
+.tab-content{padding:20px}
+
+.card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px; }
+body{ background: #EDECEC; padding:50px}*/
+   </style>
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+    });
+    function loadDoc(docURL)
+    {
+        
+        $("#someFrame").attr("src", "http://docs.google.com/gview?url=http://localhost:50480/compDoc/sample_PDF.pdf&embedded=true");
+        $("#modal-default-1").modal('show')
+        $(".overlay").hide();
+    }
+</script>

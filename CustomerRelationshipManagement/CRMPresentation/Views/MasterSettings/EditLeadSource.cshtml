@@ -1,0 +1,104 @@
+﻿@model CRM.BusinessLayer.BusinessModels.LeadSource
+
+@{
+    ViewBag.Title = "EditLeadSource";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <html>
+    <head>
+
+    </head>
+    <body>
+
+        <section class="content-header">
+            <h1></h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">@Html.ActionLink("View Lead Source", "ViewLeadSource")</li>
+            </ol>
+        </section>
+        <br />
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                        </div>
+                        <div class="box-body">
+                            <div class="box box-warning">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Edit Lead Source</h3>
+                                    <input type="submit" value="Save" class="btn btn-success pull-right" />
+
+
+                                </div>
+
+                                <div class="box-body">
+                                    <form role="form">
+                                        <div class="overlay">
+                                            <i class="fa fa-refresh fa-spin"></i>
+                                        </div>
+                                        <div class="col-md-6">
+
+                                            <div class="form-horizontal">
+                                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                                @Html.HiddenFor(model => model.LeadSourceId)
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.LeadSourceName, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.LeadSourceName, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.LeadSourceName, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                @*<div class="form-group">
+                                                    @Html.LabelFor(model => model.LeadStatus, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.LeadStatus, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.LeadStatus, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>*@
+
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.LeadStatus, htmlAttributes: new { @class = "control-label col-md-3", @style = "margin-left:-25px;" })
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownListFor(model => model.LeadStatus, new SelectList(
+                  new List<Object> { new { value = 0, text = "SELECT" }, new { value = 'Y', text = "Yes" }, new { value = 'N', text = "No" } }, "value", "text", 2), htmlAttributes: new { @class = "form-control select2" })
+
+
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </body>
+</html>
+
+        }
+
+

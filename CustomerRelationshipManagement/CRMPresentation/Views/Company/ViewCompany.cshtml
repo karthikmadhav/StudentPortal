@@ -1,0 +1,133 @@
+﻿@model IEnumerable<CRM.BusinessLayer.BusinessModels.CompanyDetails>
+
+@{
+    ViewBag.Title = "ViewCompany";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<div>
+    <section class="content-header">
+        <h1></h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">@Html.ActionLink("Create New", "NewCompany")</li>
+        </ol>
+    </section>
+</div>
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">View Company</h3>
+                    @Html.ActionLink("Create New", "NewCompany", "Company", null, new { @class = "btn btn-primary pull-right" })
+                </div>
+                <div class="box-body">
+                    @if (Model != null)
+                    {
+                        <div class="overlay">
+                            <i class="fa fa-refresh fa-spin"></i>
+                        </div>
+                    <table class="table table-bordered table-hover">
+                        <tr>
+                            <th hidden="hidden">
+                                @Html.DisplayNameFor(model => model.CompanyID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CompanyName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PrimaryMailID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PrimaryPhoneNo)
+                            </th>
+                          
+                         
+                          
+                            <th>
+                                @Html.DisplayNameFor(model => model.BillingAddress)
+                            </th>
+                          
+                            <th>
+                                @Html.DisplayNameFor(model => model.BillingCity)
+                            </th>
+                            <th>@Html.DisplayName("Action")</th>
+                        </tr>
+                        
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td hidden="hidden">
+                                    @Html.DisplayFor(modelItem => item.CompanyID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CompanyName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PrimaryMailID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PrimaryPhoneNo)
+                                </td>
+                              
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BillingAddress)
+                                </td>
+                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BillingCity)
+                                </td>
+                              
+                                <td>
+                                    @Html.ActionLink(" ", "EditCompany", new { id = item.CompanyID }, new { @class = "fa fa-pencil" }) |
+                                    @Html.ActionLink(" ", "DeleteCompany", new { id = item.CompanyID }, new { @class = "fa fa-trash-o" })|
+                                   <a href="javascript:void(0);" class="anchorDetail fa fa-th-list" data-id="@item.CompanyID" onclick="loadCompanyDetails(@item.CompanyID)"></a> 
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    }
+                    else
+                    {
+                    <div class="form-group">
+                        <label for="company">No Company Data Available !.</label>
+                    </div>
+                    }
+                </div>
+                </div>
+
+            </div>
+
+        <div class="modal fade test" id="modal-default">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Company Details</h4>
+                    </div>
+                    <div class="popmodal-body">
+                       
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                    </div>
+                </div>
+               
+            </div>
+           
+        </div>
+       
+
+        </div>
+</section>
+
+<script type="text/javascript">
+   
+</script>
+

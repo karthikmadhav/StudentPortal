@@ -1,0 +1,182 @@
+﻿@model CRM.BusinessLayer.BusinessModels.CompanyDetails
+
+@{
+    ViewBag.Title = "New Company";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <section class="content-header">
+        <h1></h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">@Html.ActionLink("View Company", "ViewCompany")</li>
+        </ol>
+    </section>
+    <br />
+    <section class="content">
+        <div class="row">
+           
+                <div class="col-md-12">
+                    <div class="box box-warning">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">General Information</h3>
+                            <input type="submit" value="Save" class="btn btn-success pull-right" />
+                        </div>
+                        <form role="form">
+                            <div class="box-body">
+                                <div class="overlay">
+                                    <i class="fa fa-refresh fa-spin"></i>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="company">Company Name:</label>
+                                        @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="PrimaryMail">Primary Mail:</label>
+                                        @Html.EditorFor(model => model.PrimaryMailID, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="PrimaryPhone">Primary Phone:</label>
+                                        @Html.EditorFor(model => model.PrimaryPhoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="AnnualRevenue">Annual Revenue:</label>
+                                        @Html.EditorFor(model => model.AnnualRevenue, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+
+                                </div>
+                                <div class="col-md-5">
+
+                                    <div class="form-group">
+                                        <label for="Fax">Fax:</label>
+                                        @Html.EditorFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Website">Company Website:</label>
+                                        @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Industry">Industry Category:</label>
+                                        @Html.DropDownListFor(m => m.IndustryCategoryId, new SelectList(Model.IndustryCategoryList, "IndustryCategoryId", "IndustryCategoryName"), "Select Industry", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Address Information</h3>
+                        </div>
+                        <form role="form">
+                            <div class="box-body">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="BillingAddress">Billing Address:</label>
+                                        @Html.EditorFor(model => model.BillingAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="BillingAddress1">Billing Address 1:</label>
+                                        @Html.EditorFor(model => model.BillingAddress1, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="BillingCity">Billing City:</label>
+                                        @Html.EditorFor(model => model.BillingCity, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="BillingState">Billing State:</label>
+                                        @Html.EditorFor(model => model.BillingState, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="BillingCountry">Billing Country:</label>
+                                        @Html.EditorFor(model => model.BillingCountry, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="BillingPincode">Billing Pincode:</label>
+                                        @Html.EditorFor(model => model.BillingPincode, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="ShippingAddress">Shipping gAddress:</label>
+                                        @Html.EditorFor(model => model.ShippingAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ShippingAddress1">Shipping Address1:</label>
+                                        @Html.EditorFor(model => model.ShippingAddress1, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ShippingCity">Shipping City:</label>
+                                        @Html.EditorFor(model => model.ShippingCity, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ShippingState">Shipping State:</label>
+                                        @Html.EditorFor(model => model.ShippingState, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ShippingCountry">Shipping Country:</label>
+                                        @Html.EditorFor(model => model.ShippingCountry, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ShippingPincode">Shipping Pincode:</label>
+                                        @Html.EditorFor(model => model.ShippingPincode, new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+</section>
+        <div class="form-horizontal">
+           
+
+          
+
+
+          
+
+          
+
+           
+
+
+           
+
+
+
+          
+
+         
+
+           
+
+
+         
+
+          
+
+         
+
+          
+
+          
+        </div>
+        }
+
+      

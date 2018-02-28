@@ -1,0 +1,80 @@
+﻿@model IEnumerable<CRM.BusinessLayer.BusinessModels.LeadSource>
+
+@{
+    ViewBag.Title = "Lead Source";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<html>
+<head>
+
+</head>
+<body>
+    <div>
+      
+        <section class="content-header">
+            <h1>
+               
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">@Html.ActionLink("Create New", "NewLeadSource")</li>
+            </ol>
+        </section>
+        <br />
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box box-success">
+                        <div class="box-header">
+                            <h3 class="box-title">Lead Source</h3>
+                          @Html.ActionLink("Create New", "NewLeadSource", "MasterSettings",null, new { @class = "btn btn-primary pull-right" })
+                        </div>
+                        <div class="box-body">
+                            <div class="overlay">
+                                <i class="fa fa-refresh fa-spin"></i>
+                            </div>
+                            <table class="table table-bordered table-hover col-xs-9" id="leadSource">
+                                <tr>
+                                    <th class="col-md-4">
+                                        @Html.DisplayNameFor(model => model.LeadSourceName)
+                                    </th>
+                                    <th class="col-md-2">
+                                        @Html.DisplayNameFor(model => model.LeadStatus)
+                                    </th>
+                                    <th class="col-md-3" >@Html.DisplayName("Action")</th>
+                                </tr>
+
+                                @foreach (var item in Model)
+            {
+                                    <tr>
+                                        <td class="col-md-4">
+                                            @Html.DisplayFor(modelItem => item.LeadSourceName)
+                                        </td>
+                                        <td class="col-md-2">
+                                            @Html.DisplayFor(modelItem => item.LeadStatus)
+                                        </td>
+                                        <td class="col-md-3">
+                                            @Html.ActionLink(" ", "EditLeadSource", new {id=item.LeadSourceId}, new { @class = "fa fa-pencil" }) |                                           
+                                            @Html.ActionLink(" ", "DeleteLeadSource", new { id = item.LeadSourceId }, new { @class = "fa fa-trash-o" })
+                                        </td>
+                                       
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+
+
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+</div>
+   
+</body>
+</html>
+
+
+

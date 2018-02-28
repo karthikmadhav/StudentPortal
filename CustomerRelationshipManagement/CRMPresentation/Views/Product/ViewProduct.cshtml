@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewBag.Title = "ViewProduct";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<html>
+<head>
+
+</head>
+<body>
+    <section class="content-header">
+        <h1></h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">@Html.ActionLink("New Product", "NewProduct")</li>
+        </ol>
+    </section>
+    <br />
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-body" ng-app="myApp">
+                        <div class="box box-warning" ng-controller="myCtrl">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">View Product</h3>
+                                <input type="submit" value="Advance Search" class="btn btn-success pull-right" ng-click="SearchProuct()" data-toggle="collapse" data-target="#Advsearch"/>
+
+                            </div>
+                            <div class="box-body">
+                                <form role="form">
+                                    <div class="col-md-9">
+                                        <div class="form-horizontal">
+                                            <div id="Advsearch" class="collapse">
+                                                <div class="col-sm-8 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="col-md-6 control-label">Product Name</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" id="inputSName" placeholder="Name" ng-model="SName">
+                                                            <input type="text" id="txt1" hidden="hidden"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="col-md-6 control-label">Description</label><br />
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" placeholder="Description"  ng-model="SDescription" />
+                                                            <input type="text" id="txt2" hidden="hidden" />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label class="col-md-6 control-label">Status</label><br />
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="inputSStatus" placeholder="Status" ng-model="SStatus" maxlength="1">
+                                                            <input type="text" id="txt3" style="border:0;" />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 col-lg-4">
+                                                    <div class="form-group" style="margin-right:-520px;margin-top:-50px;">
+                                                        <input type="submit" value="Apply" class="btn btn-default pull-right" ng-click="FilterProuct()">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <table class="table table-bordered table-hover" id="leadSource" ng-init="GetAllData()">
+                                                <tr>
+                                                    <th hidden="hidden">
+                                                        ProdID
+                                                    </th>
+                                                    <th>
+                                                        Product Name
+                                                    </th>
+                                                    <th>
+                                                        Product Description
+                                                    </th>
+                                                    <th width="20px">
+                                                        Status
+                                                    </th>
+                                                    <th>
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                                <tr ng-repeat="Prod in products">
+                                                    <td hidden="hidden">
+                                                        {{Prod.ProdID}}
+                                                    </td>
+                                                    <td>
+                                                        {{Prod.ProdName}}
+                                                    </td>
+                                                    <td>
+                                                        {{Prod.ProdDesc}}
+                                                    </td>
+                                                    <td>
+                                                        {{Prod.Status}}
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" class="btn btn-warning" value="Update" ng-click="UpdateProd(Prod)" />
+                                                        <input type="button" class="btn btn-danger" value="Delete" ng-click="DeleteProd(Prod)" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <hr />
+                            <div class="col-md-12">
+                               
+                                <div class="row" id="editProd" style="display:none;">
+
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">Update Product</h3>
+                                        <input type="submit" value="Update" class="btn btn-success pull-right" ng-click="UpdateProduct()" />
+
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label class="col-md-6 control-label">Product Name</label>
+                                            <div class="col-md-8">
+                                                <input type="text" class="form-control" id="inputPName" placeholder="Name" ng-model="PName">
+                                                <input type="text" class="form-control" id="inputPID" placeholder="Name" ng-model="PID" hidden="hidden">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label class="col-md-8 control-label">Description</label><br />
+                                            <div class="col-md-8">
+                                                <input type="text" class="form-control" id="inputPDescription" placeholder="Description" ng-model="PDescription">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="form-group">
+                                            <label class="col-md-6 control-label">Status</label><br />
+                                            <div class="col-md-8">
+                                                <input type="text" class="form-control" id="inputPStatus" placeholder="Status" ng-model="PStatus" maxlength="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @Html.Hidden("_ProdID")
+</section>
+    <script src="~/scripts/angular.js"></script>
+    <script src="~/scripts/AngularCode/ProductData.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,97 @@
+﻿@model CRM.BusinessLayer.BusinessModels.CompanyDetails
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <form role="form">
+                <div class="box-body">
+                    <div class="overlay">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            @Html.DisplayFor(model => model.CompanyName, new {  @class = "text-primary" })
+                        </div>
+                        <div class="form-group">
+                            <label for="PrimaryPhoneNo">Primary Phone</label>
+                            @Html.DisplayFor(model => model.PrimaryPhoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="Website">Website</label>
+                            @Html.DisplayFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="BillingAddress">Billing Address</label>
+                            @Html.DisplayFor(model => model.BillingAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="BillingAddress1">Billing Address Line 1</label>
+                            @Html.DisplayFor(model => model.BillingAddress1, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="BillingCity">Billing City</label>
+                            @Html.DisplayFor(model => model.BillingCity, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="BillingState">Billing State</label>
+                            @Html.DisplayFor(model => model.BillingState, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="BillingCountry">Billing Country</label>
+                            @Html.DisplayFor(model => model.BillingCountry, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="BillingPincode">Billing Pincode</label>
+                            @Html.DisplayFor(model => model.BillingPincode, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="PrimaryMailID">Primary Mail</label>
+                            @Html.DisplayFor(model => model.PrimaryMailID, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="Fax">Fax</label>
+                            @Html.DisplayFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="AnnualRevenue">AnnualRevenue</label>
+                            @Html.DisplayFor(model => model.AnnualRevenue, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="ShippingAddress">Shipping Address</label>
+                            @Html.DisplayFor(model => model.ShippingAddress, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="ShippingAddress1">Shipping Address Line1</label>
+                            @Html.DisplayFor(model => model.ShippingAddress1, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="ShippingCity">Shipping City</label>
+                            @Html.DisplayFor(model => model.ShippingCity, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="ShippingState">Shipping State</label>
+                            @Html.DisplayFor(model => model.ShippingState, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="ShippingCountry">Shipping Country</label>
+                            @Html.DisplayFor(model => model.ShippingCountry, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="form-group">
+                            <label for="ShippingPincode">Shipping Pincode</label>
+                            @Html.DisplayFor(model => model.ShippingPincode, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    </div>
+                </form>
+                </div>
+                <div class="col-xs-6">
+                   
+                    <p>
+                        @Html.ActionLink("Edit", "EditCompany", new { id = Model.CompanyID  }) |
+                        @Html.ActionLink("ViewAll", "ViewCompany")
+                    </p>
+                </div>
+        </div>
+</section>
