@@ -286,6 +286,8 @@
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\angular.min.js" />
     <Content Include="scripts\AngularCode\ProductData.js" />
+    <Content Include="scripts\AngularCode\QD.js" />
+    <Content Include="scripts\AngularCode\QE.js" />
     <Content Include="scripts\AngularCode\QuoteData.js" />
     <Content Include="scripts\errors.json" />
     <Content Include="scripts\angular.min.js.map" />
@@ -1106,6 +1108,8 @@
     <Content Include="Views\Product\ViewProduct.cshtml" />
     <Content Include="scripts\version.json" />
     <Content Include="Views\Quote\GenerateQuote.cshtml" />
+    <Content Include="Views\Quote\GQuote.cshtml" />
+    <Content Include="Views\Quote\EQuote.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

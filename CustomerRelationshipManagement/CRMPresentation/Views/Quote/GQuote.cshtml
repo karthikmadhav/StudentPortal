@@ -1,0 +1,226 @@
+﻿
+@{
+    ViewBag.Title = "GQuote";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">@Html.ActionLink("View Quote", "ViewQuote")</li>
+    </ol>
+</section>
+<br />
+<section class="content">
+    <div class="row" ng-app="qapp" ng-controller="MainCtrl">
+        <div class="col-md-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">New Quote Generation</h3>
+                    <input type="submit" value="Generate" class="btn btn-success pull-right" ng-click="create()" />
+
+                </div>
+                <div class="box-body">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="company">Select Customer</label>
+                            <select data-ng-model="cust"
+                                    data-ng-options="c.CustomerID as c.CustomerName for c in customeDetails" class="form-control" ng-init="GetData()" data-ng-change="GetCustomerDetails()">
+                                <option value="">--Select Customer--</option>
+                            </select>
+                        </div>
+                    </div><br /><br /><br /><hr />
+                    <div class="col-md-12" id="custDetails">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Customer Details</h3>
+                        </div><br />
+                        <div class="col-md-5">
+
+                            <div class="form-group">
+                                <label class="control-label">Primay Email</label>
+                                <div class="">
+                                    <input type="text" class="form-control" id="PrimaryMail" ng-model="PrimaryMail">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Primay Phone</label>
+                                <div class="">
+                                    <input type="text" class="form-control" id="PrimaryPhone" ng-model="PrimayPhone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label">Contact Person Name</label>
+                                <div class="">
+                                    <input type="text" class="form-control" id="PersonName" ng-model="PersonName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Contact Person No</label>
+                                <div class="">
+                                    <input type="text" class="form-control" id="PrimaryPhone" ng-model="PersonNo">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+
+                            <div class="col-md-5">
+
+                                <div class="form-group">
+                                    <label class="control-label">Billing Address</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="BillingAddress" ng-model="BillingAddress">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Billing Address 1</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="BillingAddress1" ng-model="BillingAddress1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Billing City</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="BillingCity" ng-model="BillingCity">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Billing State</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="BillingState" ng-model="BillingState">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Billing Country</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="BillingCountry" ng-model="BillingCountry">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Billing Pincode</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="BillingPincode" ng-model="BillingPincode">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label class="control-label">Shipping Address</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="ShippingAddress" ng-model="ShippingAddress">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Shipping Address1</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="ShippingAddress1" ng-model="ShippingAddress1">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Shipping City</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="ShippingCity" ng-model="ShippingCity">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Shipping State</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="ShippingState" ng-model="ShippingState">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Shipping Country</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="ShippingCountry" ng-model="ShippingCountry">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Shipping Pincode</label>
+                                    <div class="">
+                                        <input type="text" class="form-control" id="ShippingPincode" ng-model="ShippingPincode">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><br /><hr />
+                    <div>
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Product Details</h3>
+                        </div><br />
+                        <table class="table table-striped table-bordered">
+                            <thead>
+
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>UOM</th>
+                                    <th>List Price</th>
+                                    <th>Discount</th>
+                                    <th>Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr></tr>
+                                <tr ng-repeat="r in rows">
+                                    <td>
+                                        <select ng-model="r.item_code" ng-change="getProductDetails(r,$index)" ng-options="p.item_code as p.item_description for p in product" class="form-control">
+                                            <option value="">Select Product</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text" style="width: 80px" ng-model="r.quantity" value="0" class="form-control" />
+                                    </td>
+                                    <td>
+                                        <input type="text" disabled="disabled" style="width: 80px" ng-model="r.uom" class="form-control" />
+                                    </td>
+                                    <td>
+                                        <input type="text" style="width: 80px" disabled="disabled" ng-model="r.product_mrp" value="0" class="form-control" />
+                                    </td>
+                                    <td>
+                                        <input type="text" style="width: 80px" ng-model="r.product_discount" value="0" class="form-control" ng-change="calDiscount($index)" />
+                                    </td>
+                                    <td>{{r.amount=r.quantity*r.product_mrp-r.product_discount| currency}}</td>
+
+                                    <td>
+
+                                        <div class="text-center">
+                                            <button ng-click="addRow()" class="fa fa-plus-circle"></button>
+
+                                            <button ng-click="remove($index)" class="fa fa-minus-circle"></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td></td>
+                                    <td></td>
+                                    <td><h4>SGST :</h4></td>
+                                    <td><h4>CGST :</h4></td>
+                                    <td>
+                                        <h4>TOTAL :</h4>
+                                    </td>
+                                    <td>
+                                        <h4>
+                                            <strong ng-model="total">{{total_amount() |currency}}</strong>
+                                        </h4>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="~/scripts/angular.js"></script>
+<script src="~/scripts/AngularCode/QD.js"></script>

@@ -27,6 +27,15 @@ namespace CRMPresentation.Controllers
         {
             return "Product Added Successfully";
         }
+
+        public ActionResult GQuote()
+        {
+            return View();
+        }
+        public ActionResult EQuote()
+        {
+            return View();
+        }
     }
-  
+
 }
