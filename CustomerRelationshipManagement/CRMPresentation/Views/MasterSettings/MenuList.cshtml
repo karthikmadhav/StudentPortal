@@ -1,0 +1,142 @@
+﻿
+@model IEnumerable<CRMPresentation.Models.Menu>
+
+<div class="navigation">
+    @foreach (var m in Model)
+    {
+        if (m.MenuParentID == 0)
+        {
+            var submenu = Model.Where(n => n.MenuParentID == m.MID).ToList();
+
+            if (submenu != null && submenu.Count > 0)
+            {
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="@m.IconStyle"></i>
+                            <span>@m.MenuName</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            @foreach (var e in submenu)
+                            {
+                                <li>
+                                    <a href='@Url.Action(@e.ActionName, @e.ControllerName)' onclick='navigate(this.href);'><i class="fa fa-circle-o"></i> <span>@e.MenuName</span></a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                </ul>
+            }
+            else
+            {
+                //if parent menu does not have child menu
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="active">
+                       <a href='@Url.Action(@m.ActionName, @m.ControllerName)' onclick='navigate(this.href);'><i class="@m.IconStyle"></i> <span>@m.MenuName</span></a>
+                    </li>
+                </ul>
+            }
+        }
+    }
+</div>
+
+
+
+@*<ul class="sidebar-menu" data-widget="tree">
+    <li class="active"> <a href=""><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Customer</span>
+            <span class="pull-right-container">
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/Customer/NewCustomer"><i class="fa fa-circle-o"></i>New Customer</a></li>
+            <li><a href="/Customer/ViewCustomer"><i class="fa fa-circle-o"></i> View Customer</a></li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Company</span>
+            <span class="pull-right-container">
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/Company/NewCompany"><i class="fa fa-circle-o"></i>New Company</a></li>
+            <li><a href="/Company/ViewCompany"><i class="fa fa-circle-o"></i> View Company</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>Industry</span>
+            <span class="pull-right-container">
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/MasterSettings/NewIndustryCategory"><i class="fa fa-circle-o"></i> New Industry</a></li>
+            <li><a href="/MasterSettings/ViewIndustryCategory"><i class="fa fa-circle-o"></i> View Industry</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-edit"></i> <span>Lead Source</span>
+            <span class="pull-right-container">
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/MasterSettings/NewLeadSource"><i class="fa fa-circle-o"></i> New Lead Source</a></li>
+            <li><a href="/MasterSettings/ViewLeadSource"><i class="fa fa-circle-o"></i> View Lead Source</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-table"></i> <span>Quotes</span>
+            <span class="pull-right-container">
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/Quote/GQuote"><i class="fa fa-circle-o"></i> New Quotes</a></li>
+            <li><a href="/Quote/ViewQuote"><i class="fa fa-circle-o"></i> View Quotes</a></li>
+        </ul>
+    </li>
+
+
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-folder"></i> <span>Product</span>
+            <span class="pull-right-container">
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/Product/NewProduct"><i class="fa fa-circle-o"></i> New Product</a></li>
+            <li><a href="/Product/ViewProduct"><i class="fa fa-circle-o"></i> View Product</a></li>
+        </ul>
+    </li>
+
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-table"></i> <span>Masters Settings</span>
+            <span class="pull-right-container">
+            </span>
+        </a>
+        <ul class="treeview-menu">
+
+            <li><a href="/MasterSettings/ViewLeadSource"><i class="fa fa-circle-o"></i> Lead Source</a></li>
+            <li><a href="/MasterSettings/ViewindustryCategory"><i class="fa fa-circle-o"></i>Industry Category</a></li>
+            <li><a href="/Company/ViewCompany"><i class="fa fa-circle-o"></i>Company Details</a></li>
+
+        </ul>
+    </li>
+
+</ul>*@
+
+

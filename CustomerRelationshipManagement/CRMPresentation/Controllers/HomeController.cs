@@ -1,4 +1,5 @@
 ﻿using CRM.BusinessLayer.Interfaces;
+using CRMPresentation.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,15 @@ namespace CRMPresentation.Controllers
         public ActionResult Dashboard()
         {
             return View();
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Login(LoginDetails loginDetails)
+        {
+            return RedirectToAction("Dashboard");
         }
     }
 }

@@ -11,6 +11,8 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using CRMPresentation.Models;
+using CRMPresentation.Repository;
 
 namespace CRMPresentation.Controllers
 {
@@ -141,6 +143,22 @@ namespace CRMPresentation.Controllers
             return RedirectToAction("NewIndustryCategory");
         }
         //Industry Category End
+        [HttpGet]
+        public virtual PartialViewResult Menu()
+        {
+            IEnumerable<Menu> Menu = null;
+
+            if (Session["_Menu"] != null)
+            {
+                Menu = (IEnumerable<Menu>)Session["_Menu"];
+            }
+            else
+            {
+                Menu = MenuData.GetMenus("10002");// pass employee id here
+                Session["_Menu"] = Menu;
+            }
+            return PartialView("MenuList", Menu);
+        }
 
     }
 }
