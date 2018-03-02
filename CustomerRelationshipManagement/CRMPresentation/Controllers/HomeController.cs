@@ -1,4 +1,6 @@
 ﻿using CRM.BusinessLayer.Interfaces;
+using CRM.Common.Interface;
+using CRM.Common.Models;
 using CRMPresentation.Models;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,11 @@ namespace CRMPresentation.Controllers
 {
     public class HomeController : Controller
     {
-
+        private IUserAuthentication _IUserAuthentication;
+        public HomeController(IUserAuthentication userAuthentication)
+        {
+            _IUserAuthentication = userAuthentication;
+        }
         // GET: Home
         public ActionResult Index()
         {
@@ -25,9 +31,21 @@ namespace CRMPresentation.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(LoginDetails loginDetails)
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(UserAuthentication loginDetails)
         {
-            return RedirectToAction("Dashboard");
+            if (ModelState.IsValid)
+            {
+                UserAuthentication logDetails = _IUserAuthentication.GetUserAuthentication(loginDetails);
+                if (logDetails!=null)
+                {
+                    Session["_UserID"] = Convert.ToString(logDetails.UserID);
+                    return RedirectToAction("Dashboard");
+                }
+                return View();
+            }
+            return View();
+
         }
     }
 }

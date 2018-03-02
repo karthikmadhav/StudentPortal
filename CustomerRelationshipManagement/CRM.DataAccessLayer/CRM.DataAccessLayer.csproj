@@ -61,10 +61,17 @@
     <Compile Include="Providers\DataModel\DLLIndustryCategory.cs" />
     <Compile Include="Providers\IndustryCategoryProviders.cs" />
     <Compile Include="Providers\LeadSourceProvider.cs" />
+    <Compile Include="Providers\UserAuthenticationProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CRM.Common\CRM.Common.csproj">
+      <Project>{66AD14CE-B4FD-4B06-B593-5AC33C4F02BB}</Project>
+      <Name>CRM.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

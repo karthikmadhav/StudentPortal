@@ -154,6 +154,9 @@ namespace CRMPresentation.Controllers
             }
             else
             {
+                int loginUserID;
+                if (Session["_UserID"] != null)
+                     loginUserID =Convert.ToInt32(Session["_UserID"].ToString());
                 Menu = MenuData.GetMenus("10002");// pass employee id here
                 Session["_Menu"] = Menu;
             }

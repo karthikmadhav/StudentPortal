@@ -243,3 +243,5 @@ C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPr
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.csprojResolveAssemblyReference.cache
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.pdb
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CRM.Common.dll
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CRM.Common.pdb

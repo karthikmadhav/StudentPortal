@@ -1,5 +1,6 @@
 using CRM.BusinessLayer.Interfaces;
 using CRM.BusinessLayer.Services;
+using CRM.Common.Interface;
 using CRM.DataAccessLayer.Interfaces;
 using CRM.DataAccessLayer.Providers;
 using System;
@@ -56,7 +57,7 @@ namespace CRMPresentation
             container.RegisterType<ILeadSource, LeadSourceService>(new PerResolveLifetimeManager());
             container.RegisterType<IIndustryCategory, IndustryCategoryService>(new PerResolveLifetimeManager());
             container.RegisterType<ICustomerDetails, CustomerService>(new PerResolveLifetimeManager());
-            //container.RegisterType<IProduct, ProductService>(new PerResolveLifetimeManager());
+            container.RegisterType<IUserAuthentication, UserAuthenticationService>(new PerResolveLifetimeManager());
             //container.RegisterType<IProduct, ProductService1>(new PerResolveLifetimeManager());
 
             //Multiple Concrete Implementation 

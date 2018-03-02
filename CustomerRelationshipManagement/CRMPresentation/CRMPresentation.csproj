@@ -1136,6 +1136,10 @@
       <Project>{7580A929-AB1F-4B66-A0A6-A37CD983AD77}</Project>
       <Name>CRM.BusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CRM.Common\CRM.Common.csproj">
+      <Project>{66AD14CE-B4FD-4B06-B593-5AC33C4F02BB}</Project>
+      <Name>CRM.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CRM.DataAccessLayer\CRM.DataAccessLayer.csproj">
       <Project>{90680C7A-AB7A-4481-8A81-54B221025AB9}</Project>
       <Name>CRM.DataAccessLayer</Name>
