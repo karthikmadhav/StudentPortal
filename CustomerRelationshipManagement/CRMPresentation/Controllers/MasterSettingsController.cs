@@ -11,8 +11,8 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using CRMPresentation.Models;
-using CRMPresentation.Repository;
+using CRM.Common.Models;
+using CRM.Common.Repository;
 
 namespace CRMPresentation.Controllers
 {
@@ -146,21 +146,21 @@ namespace CRMPresentation.Controllers
         [HttpGet]
         public virtual PartialViewResult Menu()
         {
-            IEnumerable<Menu> Menu = null;
+            IEnumerable<Menu> menuList = null;
 
             if (Session["_Menu"] != null)
             {
-                Menu = (IEnumerable<Menu>)Session["_Menu"];
+                menuList = (IEnumerable<Menu>)Session["_Menu"];
             }
             else
             {
-                int loginUserID;
+                int loginUserID=0;
                 if (Session["_UserID"] != null)
                      loginUserID =Convert.ToInt32(Session["_UserID"].ToString());
-                Menu = MenuData.GetMenus("10002");// pass employee id here
-                Session["_Menu"] = Menu;
+                menuList = MenuData.GetMenus(loginUserID);// pass user id here
+                Session["_Menu"] = menuList;
             }
-            return PartialView("MenuList", Menu);
+            return PartialView("MenuList", menuList);
         }
 
     }

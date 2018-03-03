@@ -1,17 +1,18 @@
-﻿using CRMPresentation.Models;
+﻿using CRM.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CRMPresentation.Repository
+namespace CRM.Common.Repository
 {
-    public class MenuData
+  public  class MenuData
     {
-        public static IList<Menu> GetMenus(string UserId)
+        public static IList<Menu> GetMenus(int UserId)
         {
             /* using ado.net code */
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlServerConnString"].ToString()))
