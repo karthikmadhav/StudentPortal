@@ -22,5 +22,11 @@ namespace CRM.BusinessLayer.Services
             userAuth = _IUserAuthentication.GetUserAuthentication(userCred);
             return userAuth;
         }
+        public UserAuthentication GetAuthenticationByName(string userName)
+        {
+            UserAuthentication userAuth = new UserAuthentication();
+            userAuth = _IUserAuthentication.GetAuthenticationByName(userName);
+            return userAuth;
+        }
     }
 }

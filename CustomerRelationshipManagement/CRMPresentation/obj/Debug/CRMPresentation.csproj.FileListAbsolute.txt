@@ -180,7 +180,9 @@ C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPr
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\Bootstrapper.UnityExtension.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CommonServiceLocator.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CRM.BusinessLayer.dll
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CRM.Common.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CRM.DataAccessLayer.dll
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\EntityFramework.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -214,8 +216,10 @@ C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPr
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\WebActivatorEx.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\Dapper.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CRM.BusinessLayer.pdb
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CRM.Common.pdb
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CRM.DataAccessLayer.pdb
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CommonServiceLocator.pdb
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\EntityFramework.xml
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\Microsoft.AI.Web.xml
@@ -243,5 +247,3 @@ C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPr
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.csprojResolveAssemblyReference.cache
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.pdb
-C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CRM.Common.dll
-C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\CRM.Common.pdb

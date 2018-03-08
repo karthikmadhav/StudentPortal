@@ -58,6 +58,8 @@ namespace CRMPresentation
             container.RegisterType<IIndustryCategory, IndustryCategoryService>(new PerResolveLifetimeManager());
             container.RegisterType<ICustomerDetails, CustomerService>(new PerResolveLifetimeManager());
             container.RegisterType<IUserAuthentication, UserAuthenticationService>(new PerResolveLifetimeManager());
+            container.RegisterType<IRole, RoleDetailService>(new PerResolveLifetimeManager());
+            container.RegisterType<IUserDetails,UserDetailsService>(new PerResolveLifetimeManager());
             //container.RegisterType<IProduct, ProductService1>(new PerResolveLifetimeManager());
 
             //Multiple Concrete Implementation 

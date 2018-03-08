@@ -1,6 +1,7 @@
 ﻿using CRM.BusinessLayer.Interfaces;
 using CRM.Common.Interface;
 using CRM.Common.Models;
+using CRMPresentation.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace CRMPresentation.Controllers
     public class HomeController : Controller
     {
         private IUserAuthentication _IUserAuthentication;
+
         public HomeController(IUserAuthentication userAuthentication)
         {
             _IUserAuthentication = userAuthentication;
@@ -25,6 +27,7 @@ namespace CRMPresentation.Controllers
         {
             return View();
         }
+      
         public ActionResult Login()
         {
             return View();
@@ -38,7 +41,7 @@ namespace CRMPresentation.Controllers
                 UserAuthentication logDetails = _IUserAuthentication.GetUserAuthentication(loginDetails);
                 if (logDetails!=null)
                 {
-                    Session["_UserID"] = Convert.ToString(logDetails.UserID);
+                    SessionPersister._userID = logDetails.UserID;
                     return RedirectToAction("Dashboard");
                 }
                 return View();

@@ -8,12 +8,13 @@ namespace CRM.Common.Models
 {
    public class Menu
     {
-        public int MID;
-        public string MenuName;
-        public string MenuURL;
-        public int MenuParentID;
-        public string ControllerName;
-        public string ActionName;
-        public string IconStyle;
+        public int MID { get; set; }
+        public string MenuName { get; set; }
+        public string MenuURL { get; set; }
+        public int MenuParentID { get; set; }
+        public string ControllerName { get; set; }
+        public string ActionName { get; set; }
+        public string IconStyle { get; set; }
+        public Nullable<int> AccessPermission { get; set; }
     }
 }

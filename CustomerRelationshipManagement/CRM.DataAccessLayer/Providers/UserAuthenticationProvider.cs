@@ -12,13 +12,15 @@ using System.Threading.Tasks;
 
 namespace CRM.DataAccessLayer.Providers
 {
-   public class UserAuthenticationProvider: IUserAuthentication
+    public class UserAuthenticationProvider : IUserAuthentication
     {
         ConnectionRepository connManager = new ConnectionRepository();
         public System.Data.SqlClient.SqlConnection con;
         System.Data.IDbConnection dbConnection;
         #region Srored Procedure Name
         public string valUser = "usp_ValidateUser";
+        public string userAuthByName = "usp_GetUserAuthByName";
+
         #endregion
 
         public UserAuthenticationProvider()
@@ -27,8 +29,8 @@ namespace CRM.DataAccessLayer.Providers
         }
         public UserAuthentication GetUserAuthentication(UserAuthentication userCred)
         {
-           UserAuthentication userAuth = new UserAuthentication();
-          
+            UserAuthentication userAuth = new UserAuthentication();
+
             try
             {
                 DynamicParameters param = new DynamicParameters();
@@ -42,7 +44,25 @@ namespace CRM.DataAccessLayer.Providers
             }
             finally
             {
-               
+
+            }
+        }
+        public UserAuthentication GetAuthenticationByName(string userName)
+        {
+            UserAuthentication userAuth = new UserAuthentication();
+            try
+            {
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@UserName", userName);
+                return userAuth = dbConnection.Query<UserAuthentication>(userAuthByName, param, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+
             }
         }
     }

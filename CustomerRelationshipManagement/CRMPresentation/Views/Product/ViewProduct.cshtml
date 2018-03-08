@@ -20,7 +20,8 @@
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
+              
+                <div class="box" >
                     <div class="box-body" ng-app="myApp">
                         <div class="box box-warning" ng-controller="myCtrl">
                             <div class="box-header with-border">
@@ -28,7 +29,10 @@
                                 <input type="submit" value="Advance Search" class="btn btn-success pull-right" ng-click="SearchProuct()" data-toggle="collapse" data-target="#Advsearch"/>
 
                             </div>
-                            <div class="box-body">
+                            <div class="overlay" id="load">
+                                <i class="fa fa-refresh fa-spin"></i>
+                            </div>
+                            <div class="box-body" id="contents">
                                 <form role="form">
                                     <div class="col-md-9">
                                         <div class="form-horizontal">

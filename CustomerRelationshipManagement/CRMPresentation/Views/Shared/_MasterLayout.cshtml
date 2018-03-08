@@ -302,13 +302,16 @@
                 </div>
 
                 @{Html.RenderAction("Menu", "MasterSettings");}
+                @*@{Html.RenderAction("Menu", "MasterSettings", new { area = "" });}*@
 
          </section>
         </aside>
 
 
         <div class="content-wrapper">
+         
             @RenderBody()
+           
         </div>
 
         <footer class="main-footer">

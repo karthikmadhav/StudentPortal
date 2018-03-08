@@ -13,6 +13,7 @@ using System.Web;
 using System.Web.Mvc;
 using CRM.Common.Models;
 using CRM.Common.Repository;
+using CRM.Common.Interface;
 
 namespace CRMPresentation.Controllers
 {
@@ -20,13 +21,15 @@ namespace CRMPresentation.Controllers
     {
         private ILeadSource _LeadSource;
         private IIndustryCategory _IndustryCategory;
+        private IRole _IRole;
         string apiUrl = ConfigurationManager.AppSettings["baseurl"] + "/api/GloabalSettings/";
         HttpClient client;
-        public MasterSettingsController(ILeadSource LeadSource, IIndustryCategory industryCategory)
+        public MasterSettingsController(ILeadSource LeadSource, IIndustryCategory industryCategory, IRole role)
         {
             //_LeadSource = new LeadSourceService();
             _LeadSource = LeadSource;
             _IndustryCategory = industryCategory;
+            _IRole = role;
 
             client = new HttpClient();
             client.BaseAddress = new Uri(apiUrl);
@@ -66,7 +69,7 @@ namespace CRMPresentation.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult  NewLeadSource(LeadSource leadSource)
+        public ActionResult NewLeadSource(LeadSource leadSource)
         {
             bool result = _LeadSource.SaveLeadSource(leadSource);
             if (result)
@@ -80,7 +83,7 @@ namespace CRMPresentation.Controllers
         {
             List<LeadSource> leadSource = new List<LeadSource>();
             leadSource = _LeadSource.GetLeadSourceList();
-            LeadSource leadSrc = leadSource.Where(x => x.LeadSourceId== id).FirstOrDefault();
+            LeadSource leadSrc = leadSource.Where(x => x.LeadSourceId == id).FirstOrDefault();
             return View(leadSrc);
         }
         [HttpPost]
@@ -143,25 +146,105 @@ namespace CRMPresentation.Controllers
             return RedirectToAction("NewIndustryCategory");
         }
         //Industry Category End
-        [HttpGet]
+        [ChildActionOnly]
         public virtual PartialViewResult Menu()
         {
             IEnumerable<Menu> menuList = null;
 
-            if (Session["_Menu"] != null)
+            if (SessionPersister.MenuList != null)
             {
-                menuList = (IEnumerable<Menu>)Session["_Menu"];
+                menuList = SessionPersister.MenuList;
             }
             else
             {
-                int loginUserID=0;
-                if (Session["_UserID"] != null)
-                     loginUserID =Convert.ToInt32(Session["_UserID"].ToString());
-                menuList = MenuData.GetMenus(loginUserID);// pass user id here
-                Session["_Menu"] = menuList;
+                int loginUserID = 0;
+                loginUserID = SessionPersister._userID;
+                menuList = MenuData.GetMenus(loginUserID);
+                SessionPersister.MenuList = menuList;
             }
             return PartialView("MenuList", menuList);
         }
+        public ActionResult MenuList()
+        {
+            IEnumerable<Menu> menuList = null;
 
+            if (SessionPersister.MenuList != null)
+            {
+                menuList = SessionPersister.MenuList;
+            }
+            else
+            {
+                int loginUserID = 0;
+                loginUserID = SessionPersister._userID;
+                menuList = MenuData.GetMenus(loginUserID);
+                SessionPersister.MenuList = menuList;
+            }
+            return PartialView("MenuList", menuList);
+        }
+        public ActionResult NewRole()
+        {
+            RoleDetails rDetails = new RoleDetails();
+            return PartialView("NewRole", rDetails);
+        }
+        [HttpPost]
+        public ActionResult SaveRole(RoleDetails roleDetails)
+        {
+            bool result = false;
+            result = _IRole.SaveRole(roleDetails);
+            return RedirectToAction("Role");
+        }
+
+        public ActionResult EditRoleDetails(int id)
+        {
+            RoleDetails rDetails = _IRole.GetRoleByID(id);
+            return PartialView("EditRole", rDetails);
+        }
+        [HttpPost]
+        public ActionResult EditRole(RoleDetails roleDetails)
+        {
+            bool result = false;
+            result = _IRole.UpdateRole(roleDetails);
+            return RedirectToAction("Role");
+        }
+        public ActionResult Role()
+        {
+            List<RoleDetails> roleDetails = new List<RoleDetails>();
+            roleDetails = _IRole.GetAllRoles();
+            return View(roleDetails);
+        }
+        public ActionResult DeleteRole()
+        {
+            return RedirectToAction("Role");
+        }
+
+        public ActionResult RoleMenuMapping()
+        {
+            IEnumerable<Menu> menuList = null;
+            if (SessionPersister.MenuList != null)
+            {
+                menuList = SessionPersister.MenuList;
+            }
+            return View(menuList);
+        }
+        [HttpPost]
+        public ActionResult RoleMenuMapping(FormCollection form)
+        {
+
+            //foreach (string key in coll.AllKeys)
+            //{
+            //    var value = coll[key];
+            //}
+            //foreach (var key in coll.Keys)
+            //{
+            //    var value = coll[key.ToString()];
+            //    // etc.
+            //}
+            IEnumerable<Menu> menuList = null;
+            if (SessionPersister.MenuList != null)
+            {
+                menuList = SessionPersister.MenuList;
+            }
+            return View(menuList);
+        }
     }
 }

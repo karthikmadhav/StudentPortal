@@ -1,0 +1,84 @@
+﻿@model IEnumerable<CRM.Common.Models.UserDetails>
+
+@{
+    ViewBag.Title = "ViewUser";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">@Html.ActionLink("Create New", "NewUser")</li>
+    </ol>
+</section>
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">View User</h3>
+                    @Html.ActionLink("Create New", "NewUser", "UserMaster", null, new { @class = "btn btn-primary pull-right" })
+                </div>
+                @*<div class="overlay">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>*@
+                <div class="box-body" id="content">
+@if (Model != null)
+{
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th hidden="hidden">
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+          
+            <th>Action</th>
+            </tr>
+@foreach (var item in Model)
+{
+    <tr>
+        <td hidden="hidden">
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "EditUser", new { id = item.UserId }, new { @class = "fa fa-pencil" }) |
+            @Html.ActionLink(" ", "DeleteUser", new { id = item.UserId }, new { @class = "fa fa-trash-o" })|
+            @Html.ActionLink(" ", "UserDetails", new { id = item.UserId }, new { @class = "fa fa-th-list" })
+        </td>
+    </tr>
+}
+</table>
+
+        }
+</div>
+                </div>
+            </div>
+        </div>
+</section>
+    

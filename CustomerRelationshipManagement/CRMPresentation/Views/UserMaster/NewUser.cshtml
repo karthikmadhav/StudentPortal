@@ -1,0 +1,94 @@
+﻿@model CRM.Common.Models.UserDetails
+
+@{
+    ViewBag.Title = "NewUser";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section class="content-header">
+        <h1></h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">@Html.ActionLink("View User", "ViewUser")</li>
+        </ol>
+    </section>
+    <br />
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">New User</h3>
+                        <input type="submit" value="Save" class="btn btn-success pull-right" />
+                    </div>
+                    <div id="load" class="overlay">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </div>
+                    <div class="box-body" id="content">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="Industry">User Role<i class="text-danger">*</i></label>
+                                @Html.DropDownListFor(m => m.RoleId, new SelectList(Model.roleDetails, "RoleId", "Name"), "Select Role", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label for="UserName">Name<i class="text-danger">*</i></label>
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @class = "checkbox checkbox-info checkbox-circle" } }) 
+                                    <label for="Status">Status</label>
+                                    @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="UserName">User Name<i class="text-danger">*</i></label>
+                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="Password">Password<i class="text-danger">*</i></label>
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+<script type="text/javascript">
+    $('#UserName').change(function () {
+        var userName = $('#UserName').val();
+        $.ajax({
+            type: "POST",
+            url: "/UserMaster/CheckUserAvailability",
+            data: '{UserName: "' + userName + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (response) {
+                debugger;
+                if (response == "True")
+                    alert("User Id Already Available")
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    });
+
+</script>
+}
+
+

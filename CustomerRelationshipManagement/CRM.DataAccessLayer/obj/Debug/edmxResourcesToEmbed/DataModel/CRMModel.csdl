@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CRMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CustomerDetail">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimaryMailID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrimaryPhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IndustryCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="BillingAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BillingAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BillingCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BillingState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BillingCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BillingPincode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShippingAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShippingAddress1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShippingCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShippingState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShippingCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShippingPincode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPersonNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="IndustryCategory" Relationship="Self.FK_CustomerDetails_IndustryCategory" FromRole="CustomerDetails" ToRole="IndustryCategory" />
+  </EntityType>
+  <EntityType Name="IndustryCategory">
+    <Key>
+      <PropertyRef Name="IndustryCategoryId" />
+    </Key>
+    <Property Name="IndustryCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IndustryCategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="CustomerDetails" Relationship="Self.FK_CustomerDetails_IndustryCategory" FromRole="IndustryCategory" ToRole="CustomerDetails" />
+  </EntityType>
+  <EntityType Name="MenuMaster">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MenuUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MenuParentId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="ControllerName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IconStyle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RoleMaster">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="UserAuthentication">
+    <Key>
+      <PropertyRef Name="UserAuthID" />
+    </Key>
+    <Property Name="UserAuthID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_CustomerDetails_IndustryCategory">
+    <End Role="IndustryCategory" Type="Self.IndustryCategory" Multiplicity="1" />
+    <End Role="CustomerDetails" Type="Self.CustomerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IndustryCategory">
+        <PropertyRef Name="IndustryCategoryId" />
+      </Principal>
+      <Dependent Role="CustomerDetails">
+        <PropertyRef Name="IndustryCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CRMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CustomerDetails" EntityType="Self.CustomerDetail" />
+    <EntitySet Name="IndustryCategories" EntityType="Self.IndustryCategory" />
+    <EntitySet Name="MenuMasters" EntityType="Self.MenuMaster" />
+    <EntitySet Name="RoleMasters" EntityType="Self.RoleMaster" />
+    <EntitySet Name="UserAuthentications" EntityType="Self.UserAuthentication" />
+    <EntitySet Name="UserMasters" EntityType="Self.UserMaster" />
+    <AssociationSet Name="FK_CustomerDetails_IndustryCategory" Association="Self.FK_CustomerDetails_IndustryCategory">
+      <End Role="IndustryCategory" EntitySet="IndustryCategories" />
+      <End Role="CustomerDetails" EntitySet="CustomerDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

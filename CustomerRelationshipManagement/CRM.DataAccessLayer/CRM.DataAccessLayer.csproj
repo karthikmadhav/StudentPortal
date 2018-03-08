@@ -38,9 +38,17 @@
       <HintPath>..\packages\Dapper.Extension.1.0.0.1\lib\net45\Dapper.Extension.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +59,39 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="ConnectionManager\ConnectionRepository.cs" />
+    <Compile Include="DataModel\CRMModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CRMModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CRMModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\CustomerDetail.cs">
+      <DependentUpon>CRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\IndustryCategory.cs">
+      <DependentUpon>CRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\MenuMaster.cs">
+      <DependentUpon>CRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\RoleMaster.cs">
+      <DependentUpon>CRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\UserAuthentication.cs">
+      <DependentUpon>CRMModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\UserMaster.cs">
+      <DependentUpon>CRMModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\ICustomerProvider.cs" />
     <Compile Include="Interfaces\IIndustryCategoryProvider.cs" />
     <Compile Include="Interfaces\ILeadProvider.cs" />
@@ -61,10 +102,21 @@
     <Compile Include="Providers\DataModel\DLLIndustryCategory.cs" />
     <Compile Include="Providers\IndustryCategoryProviders.cs" />
     <Compile Include="Providers\LeadSourceProvider.cs" />
+    <Compile Include="Providers\RoleDetailsProvider.cs" />
     <Compile Include="Providers\UserAuthenticationProvider.cs" />
+    <Compile Include="Providers\UserDetailsProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="DataModel\CRMModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CRMModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataModel\CRMModel.edmx.diagram">
+      <DependentUpon>CRMModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +124,21 @@
       <Project>{66AD14CE-B4FD-4B06-B593-5AC33C4F02BB}</Project>
       <Name>CRM.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModel\CRMModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CRMModel.edmx</DependentUpon>
+      <LastGenOutput>CRMModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModel\CRMModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CRMModel.edmx</DependentUpon>
+      <LastGenOutput>CRMModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

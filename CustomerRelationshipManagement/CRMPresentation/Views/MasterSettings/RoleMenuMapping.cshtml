@@ -1,0 +1,90 @@
+﻿@model IEnumerable<CRM.Common.Models.Menu>
+
+@{
+    ViewBag.Title = "RoleMenuMapping";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">@Html.ActionLink("View Lead Source", "ViewLeadSource")</li>
+    </ol>
+</section>
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="box box-warning">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Menu-Role Mapping</h3>
+                            <br /><br />
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Save" class="btn btn-success pull-right" />
+
+                            <table class="table" id="sample">
+                                <tr>
+                                    <th></th>
+                                    <th>Menu</th>
+                                    <th>SubMenu</th>
+                                    <th>Permission</th>
+
+
+                                </tr>
+                                @foreach (var m in Model)
+                                {
+
+                                    if (m.MenuParentID == 0)
+                                    {
+                                        var submenu = Model.Where(n => n.MenuParentID == m.MID).ToList();
+
+                                        if (submenu != null && submenu.Count > 0)
+                                        {
+
+
+                                            foreach (var e in submenu)
+                                            {
+<tr>
+                                                        <td>@Html.CheckBox("isNewlyEnrolled", true)</td>
+                                                        <td>@Html.Label(@m.MenuName)</td>
+                                                        <td>@Html.Label(@e.ActionName)</td>
+
+                                                        @*<td>@m.MenuName</td>
+                                                        <td>@e.ActionName </td>*@
+                                                        <td class="col-md-3">
+                                                            <select class="form-control" id="MenuPrivilege" name="MenuPrivilege">
+                                                                <option value="-1">Select Privilege</option>
+                                                                <option value="1">Add</option>
+                                                                <option value="2">Edit</option>
+                                                                <option value="3">View</option>
+                                                                <option value="4">Delete</option>
+                                                                <option value="5">Full</option>
+                                                            </select>
+
+                                                        </td>
+                                                    </tr>
+                                            }
+
+
+                                        }
+
+
+                                    }
+                                }
+
+                            </table>
+}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

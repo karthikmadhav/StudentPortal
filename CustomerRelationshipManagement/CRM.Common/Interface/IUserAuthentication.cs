@@ -10,5 +10,6 @@ namespace CRM.Common.Interface
    public interface IUserAuthentication
     {
         UserAuthentication GetUserAuthentication(UserAuthentication userCred);
+        UserAuthentication GetAuthenticationByName(string userName);
     }
 }

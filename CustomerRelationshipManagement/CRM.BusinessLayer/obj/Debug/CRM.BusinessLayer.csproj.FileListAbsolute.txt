@@ -16,13 +16,16 @@ C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Deb
 C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.BusinessLayer\obj\Debug\CRM.BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.BusinessLayer\obj\Debug\CRM.BusinessLayer.dll
 C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRM.BusinessLayer\obj\Debug\CRM.BusinessLayer.pdb
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\CRM.BusinessLayer.dll.config
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\CRM.BusinessLayer.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\CRM.BusinessLayer.pdb
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\CRM.Common.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\CRM.DataAccessLayer.dll
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\EntityFramework.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\Dapper.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\CRM.Common.pdb
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\CRM.DataAccessLayer.pdb
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\EntityFramework.xml
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\bin\Debug\Dapper.pdb
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\obj\Debug\CRM.BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.BusinessLayer\obj\Debug\CRM.BusinessLayer.dll

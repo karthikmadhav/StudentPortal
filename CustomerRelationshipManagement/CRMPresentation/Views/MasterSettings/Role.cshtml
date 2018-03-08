@@ -1,0 +1,85 @@
+﻿@model IEnumerable<CRM.Common.Models.RoleDetails>
+
+@{
+    ViewBag.Title = "Role";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<section class="content-header">
+    <h1></h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    </ol>
+</section>
+
+<br />
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Role Details</h3>
+                                   <a href="javascript:void(0);" class="btn btn-primary pull-right" onclick="addNewRole()">New Role</a>
+
+                </div>
+                <div id="load" class="overlay">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="box-body" id="contents">
+                    @*<div class="overlay">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </div>*@
+                    <table class="table table-bordered table-hover" id="tblCustomers">
+                        <tr>
+                            <th  hidden="hidden">
+                                @Html.DisplayNameFor(model => model.RoleId)
+                            </th>
+                            <th >
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th >
+                                @Html.DisplayNameFor(model => model.Active)
+                            </th>
+                            <th class="col-md-3">@Html.DisplayName("Action")</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td hidden="hidden">
+                                    @Html.DisplayFor(modelItem => item.RoleId)
+                                </td>
+                                <td >
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td >
+                                    @Html.DisplayFor(modelItem => item.Active)
+                                </td>
+                               <td>
+                                   <a href="javascript:void(0);" class="anchorDetail fa fa-pencil" data-id="@item.RoleId" onclick="editRoleDetails(@item.RoleId)"></a>|
+                                   @Html.ActionLink(" ", "DeleteRole", new { id = item.RoleId }, new { @class = "fa fa-trash-o" })
+                                </td>
+
+                            </tr>
+                      }
+
+                    </table>
+                    <br />
+                    <div  id="viewRole">
+                        <hr />
+
+                    </div>
+                    <div id="NewRole">
+                        <hr />
+
+                    </div>
+
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+

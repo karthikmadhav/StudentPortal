@@ -23,12 +23,13 @@
                     <h3 class="box-title">View Customer</h3>
                     @Html.ActionLink("Create New", "NewCustomer", "Customer", null, new { @class = "btn btn-primary pull-right" })
                 </div>
-                <div class="box-body">
+                <div class="overlay" id="load">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </div>
+                <div class="box-body" id="contents">
                     @if (Model != null)
                     {
-                        <div class="overlay">
-                            <i class="fa fa-refresh fa-spin"></i>
-                        </div>
+                      
                         <table class="table table-bordered table-hover">
                             <tr>
                                 <th hidden="hidden">
