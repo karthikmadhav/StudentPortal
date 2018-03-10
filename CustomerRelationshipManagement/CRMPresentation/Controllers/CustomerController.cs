@@ -1,7 +1,7 @@
 ﻿using CRM.BusinessLayer.BusinessModels;
 using CRM.BusinessLayer.Interfaces;
 using CRM.Common.Models;
-using CRMPresentation.Security;
+using CRMPresentation.App_Start;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,7 +33,7 @@ namespace CRMPresentation.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AuthorizeActivity(AccessLevel = (int)Permissions.Add)]
+        [AuthorizeActivity()]
         public ActionResult NewCustomer(CustomerDetails customerDetails)
         {
             bool result = false;

@@ -1,7 +1,6 @@
 ﻿using CRM.BusinessLayer.Interfaces;
 using CRM.Common.Interface;
 using CRM.Common.Models;
-using CRMPresentation.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
