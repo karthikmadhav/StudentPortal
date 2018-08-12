@@ -12,6 +12,13 @@
         <EntityTypeShape EntityType="CRMModel.UserAuthentication" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CRMModel.UserMaster" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <AssociationConnector Association="CRMModel.FK_CustomerDetails_IndustryCategory" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CRMModel.CompanyDetail" Width="1.5" PointX="3" PointY="8.125" />
+        <EntityTypeShape EntityType="CRMModel.CustomerDocument" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CRMModel.MenuPrivilege" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="CRMModel.RoleMenuMapping" Width="1.5" PointX="8.375" PointY="3.75" />
+        <EntityTypeShape EntityType="CRMModel.sysdiagram" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="CRMModel.LeadSource" Width="1.5" PointX="9.375" PointY="9.75" />
+        <AssociationConnector Association="CRMModel.FK_CompanyDetails_IndustryCategory" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

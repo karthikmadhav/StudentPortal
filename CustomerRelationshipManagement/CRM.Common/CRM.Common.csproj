@@ -47,6 +47,7 @@
     <Compile Include="Interface\IRole.cs" />
     <Compile Include="Interface\IUserAuthentication.cs" />
     <Compile Include="Interface\IUserDetails.cs" />
+    <Compile Include="Models\KYCDetails.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Permissions.cs" />
     <Compile Include="Models\RoleDetails.cs" />

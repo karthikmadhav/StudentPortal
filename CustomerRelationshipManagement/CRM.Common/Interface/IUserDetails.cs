@@ -11,5 +11,6 @@ namespace CRM.Common.Interface
     {
         int SaveUser(UserDetails userDetails);
         List<UserDetails> GetAllUser();
+        UserDetails GetUserByID(int userID);
     }
 }

@@ -20,6 +20,8 @@ namespace CRM.DataAccessLayer.Providers
         public string newUser = "usp_AddNewUser";
         public string newUserAuthentication = "usp_NewUserAuthentication";
         public string getAllUser = "usp_GetAllUser";
+        public string getUserByID = "usp_GetUserByID";
+
 
         #endregion
         public UserDetailsProvider()
@@ -59,6 +61,25 @@ namespace CRM.DataAccessLayer.Providers
             {
                 DynamicParameters param = new DynamicParameters();
                 return userDetail = dbConnection.Query<UserDetails>(getAllUser, commandType: CommandType.StoredProcedure).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+
+            }
+        }
+        public UserDetails GetUserByID(int userID)
+        {
+            UserDetails userDetail = new UserDetails();
+            try
+            {
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@UserID", userID);
+                return userDetail = dbConnection.Query<UserDetails>(getUserByID, param, commandType: CommandType.StoredProcedure).SingleOrDefault();
+
             }
             catch (Exception ex)
             {

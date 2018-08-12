@@ -309,7 +309,13 @@
 
 
         <div class="content-wrapper">
-         
+            <div id="divSuccess" class="divhide">
+                <div class="alert alert-success fade in">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <strong>Success!</strong><div id="sMessage"></div>
+                </div>
+            </div>
+
             @RenderBody()
            
         </div>
@@ -331,6 +337,24 @@
            $(".navigation li").removeClass("active");
            $(this).addClass("active");
        });
+
+       $('.treeview-menu li').click(function (e) {
+           $('.navigation li').removeClass('active');
+
+           var $this = $(this);
+           if (!$this.hasClass('active')) {
+               $this.addClass('active');
+           }
+
+       });
    </script>
+    <style type="text/css">
+        .bs-example{
+		margin: 20px;
+	}
+        .divhide{
+            display:none;
+        }
+    </style>
 </body>
 </html>

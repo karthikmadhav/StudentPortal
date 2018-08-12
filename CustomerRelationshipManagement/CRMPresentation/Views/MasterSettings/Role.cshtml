@@ -22,7 +22,7 @@
                                    <a href="javascript:void(0);" class="btn btn-primary pull-right" onclick="addNewRole()">New Role</a>
 
                 </div>
-                <div id="load" class="overlay">
+                <div id="load"  class="overlay" style="display:none">
                     <i class="fa fa-refresh fa-spin"></i>
                 </div>
                 <div class="box-body" id="contents">
@@ -56,8 +56,8 @@
                                     @Html.DisplayFor(modelItem => item.Active)
                                 </td>
                                <td>
-                                   <a href="javascript:void(0);" class="anchorDetail fa fa-pencil" data-id="@item.RoleId" onclick="editRoleDetails(@item.RoleId)"></a>|
-                                   @Html.ActionLink(" ", "DeleteRole", new { id = item.RoleId }, new { @class = "fa fa-trash-o" })
+                                   <a href="javascript:void(0);" class="anchorDetail fa fa-pencil" data-id="@item.RoleId" onclick="editRoleDetails(@item.RoleId)"></a>
+                                   @*|@Html.ActionLink(" ", "DeleteRole", new { id = item.RoleId }, new { @class = "fa fa-trash-o" })*@
                                 </td>
 
                             </tr>
@@ -69,6 +69,7 @@
                         <hr />
 
                     </div>
+                    <br />
                     <div id="NewRole">
                         <hr />
 

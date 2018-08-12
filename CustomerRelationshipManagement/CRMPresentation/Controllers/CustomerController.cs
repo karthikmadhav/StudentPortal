@@ -138,20 +138,33 @@ namespace CRMPresentation.Controllers
         [HttpPost]
         public ActionResult CustomerFileUpload(HttpPostedFileBase file)
         {
-            string path1 = Server.MapPath("/compDoc/sample_PDF.PDF");
-            string custID = Session["CustomerID"].ToString();
-            int id = Convert.ToInt32(custID);
-
             if (file != null && file.ContentLength > 0)
             {
-                string path = Path.Combine(Server.MapPath("~/compDoc"),
-                                       Path.GetFileName(file.FileName));
-                file.SaveAs(path);
-                ViewBag.Message = "File uploaded successfully";
-
+                try
+                {
+                    KYCDetails details = new KYCDetails();
+                    details.customerID = Convert.ToInt32(Session["CustomerID"].ToString());
+                    details.DocumentName = file.FileName;
+                    int kycID= _ICustomerDetails.SaveKYC(details);
+                    string test = Convert.ToString(kycID)+'_' + file.FileName.ToString();
+                    string path = Path.Combine(Server.MapPath("~/compDoc"),
+                    Path.GetFileName(test));
+                    file.SaveAs(path);
+                    return RedirectToAction("ViewCustomer");
+                }
+                catch (Exception ex)
+                {
+                    return Json(new
+                    {
+                        Error = false,
+                        Message = "File Not Uploaded"
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
-            CustomerDetails customerDet = new CustomerDetails();
-            customerDet = _ICustomerDetails.GetCustomerByID(id);
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
             return RedirectToAction("ViewCustomer");
         }
         public JsonResult GetCustomerList()
@@ -165,6 +178,27 @@ namespace CRMPresentation.Controllers
             CustomerDetails customerDet = new CustomerDetails();
             customerDet = _ICustomerDetails.GetCustomerByID(CustomerID);
             return Json(customerDet, JsonRequestBehavior.AllowGet);
+        }
+        public FileResult OpenDoc(int id)
+        {
+            List<KYCDetails> kycDet = new List<KYCDetails>();
+            if (Session["CustomerID"] != null)
+            {
+                kycDet = _ICustomerDetails.GetKYCByCustID(Convert.ToInt32(Session["CustomerID"]));
+            }
+            KYCDetails details = kycDet.Where(x => x.kycID == id).FirstOrDefault();
+            string test = Convert.ToString(id) + '_' + details.DocumentName.ToString();
+            return File(Server.MapPath("/compDoc/"+ test), "application/pdf");
+        }
+        [ChildActionOnly]
+        public PartialViewResult GetKYCDocuments()
+        {
+            List<KYCDetails> kycDet = new List<KYCDetails>();
+            if (Session["CustomerID"] != null)
+            {
+                kycDet = _ICustomerDetails.GetKYCByCustID(Convert.ToInt32(Session["CustomerID"]));
+            }
+            return PartialView("_KYCDetails", kycDet);
         }
     }
 }

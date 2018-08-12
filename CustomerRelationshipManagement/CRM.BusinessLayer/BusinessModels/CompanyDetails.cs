@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,12 @@ namespace CRM.BusinessLayer.BusinessModels
     public class CompanyDetails
     {
         public int CompanyID { get; set; }
+        [Required]
         public string CompanyName { get; set; }
+        [EmailAddress(ErrorMessage = "Invalid Email Address.")]
+        [Required]
         public string PrimaryMailID { get; set; }
+        [Required]
         public string PrimaryPhoneNo { get; set; }
         public string Fax { get; set; }
         public string Website { get; set; }
@@ -29,6 +34,7 @@ namespace CRM.BusinessLayer.BusinessModels
         public string ShippingPincode { get; set; }
         public decimal AnnualRevenue { get; set; }
         public List<IndustryCategory> IndustryCategoryList { get; set; }
+        public string GSTNO { get; set; }
         
     }
 }

@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CRM.Common.Models;
 
 namespace CRM.DataAccessLayer.Providers
 {
@@ -21,6 +22,9 @@ namespace CRM.DataAccessLayer.Providers
         public string deleteCustomer = "usp_DeleteCustomer";
         public string updateCustomer = "usp_UpdateCustomer";
         public string getCustomerByID = "usp_GetCustomerByID";
+        public string addKYCDocument = "usp_AddKYCDocument";
+        public string getKYCDocument = "usp_GetKYCDocument";
+        public string getAllKYCDocument = "usp_GetAllKYCDocument";
         #endregion
 
         System.Data.IDbConnection dbConnection;
@@ -119,6 +123,57 @@ namespace CRM.DataAccessLayer.Providers
                 DynamicParameters param = new DynamicParameters();
                 param.Add("@CustomerID", custID);
                 return customerDetails= dbConnection.Query<DLCustomerDetails>(getCustomerByID, param, commandType: CommandType.StoredProcedure).SingleOrDefault();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public int SaveKYC(KYCDetails kycDetails)
+        {
+            int kycID=0;
+            try
+            {
+                con = connManager.GetConnection();
+                con.Open();
+                con.Execute(addKYCDocument, kycDetails, commandType: CommandType.StoredProcedure);
+              List< KYCDetails>  kyc = SqlMapper.Query<KYCDetails>(con, getAllKYCDocument).ToList();
+                kycID = kyc.Max(x => x.kycID);
+                return kycID;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        public List<KYCDetails> GetKYCByCustID(int custID)
+        {
+           List<KYCDetails> kycDetails = new List<KYCDetails>();
+            con = connManager.GetConnection();
+            con.Open();
+            try
+            {
+                DynamicParameters param = new DynamicParameters();
+                param.Add("@CustomerID", custID);
+                kycDetails = SqlMapper.Query<KYCDetails>(con, getAllKYCDocument).ToList();
+                if(kycDetails!=null && kycDetails.Count > 0)
+                {
+                    kycDetails = kycDetails.Where(x => x.customerID == custID).ToList();
+                }
+                return kycDetails;
+                //return kycDetails = dbConnection.Query<KYCDetails>(getKYCDocument, param, commandType: CommandType.StoredProcedure).ToList();
+                //return kycDetails = SqlMapper.Query<KYCDetails>(con, getKYCDocument, param).ToList();
             }
             catch (Exception ex)
             {

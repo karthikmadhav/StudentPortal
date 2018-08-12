@@ -40,6 +40,7 @@ namespace CRM.BusinessLayer.BusinessModels
         [Required(ErrorMessage = "Contact Name is Required")]
         public string ContactPersonNo { get; set; }
         public List<IndustryCategory> IndustryCategoryList { get; set; }
+        public string GSTNO { get; set; }
 
     }
 }

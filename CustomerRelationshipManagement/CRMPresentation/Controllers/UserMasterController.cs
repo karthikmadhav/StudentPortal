@@ -54,5 +54,11 @@ namespace CRMPresentation.Controllers
                 result = "True";
             return result;
         }
+        public ActionResult EditUser(int id)
+        {
+            UserDetails userDetails = new UserDetails();
+            userDetails = _IUserDetails.GetUserByID(id);
+            return View(userDetails);
+        }
     }
 }

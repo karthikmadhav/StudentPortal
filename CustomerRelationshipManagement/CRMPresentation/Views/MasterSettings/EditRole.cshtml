@@ -1,45 +1,49 @@
 ﻿@model CRM.Common.Models.RoleDetails
 
-@using (Html.BeginForm("EditRole", "MasterSettings", FormMethod.Post))
+@using (Html.BeginForm("UpdateRole", "MasterSettings", FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
-    <h5 class="box-title">Edit Role Details</h5>
-    <div class="col-md-5">
-        <div class="form-horizontal">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group" hidden="hidden">
-                @Html.LabelFor(model => model.RoleId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-5">
-                    @Html.EditorFor(model => model.RoleId, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+    <div class="col-xs-7">
+        <div class="box box-info">
+            @Html.AntiForgeryToken()
+            <div class="box-header">
+                <h5 class="box-title">Edit Role </h5><br /><br />
+                <div class="col-md-7">
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group" hidden="hidden">
+                            @Html.LabelFor(model => model.RoleId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.RoleId, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-3  col-md-10">
+                                <input type="submit" value="Update" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-5">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-5">
-                    @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-3  col-md-10">
-                    <input type="submit" value="Update" class="btn btn-primary" />
-                </div>
             </div>
         </div>
-    </div>
-
-       
         }
 
-      
+

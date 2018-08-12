@@ -27,6 +27,12 @@ namespace CRM.BusinessLayer.Services
             userDetails = _IUserDetails.GetAllUser();
             return userDetails;
         }
+        public UserDetails GetUserByID(int userID)
+        {
+            UserDetails userDetails = new UserDetails();
+            userDetails = _IUserDetails.GetUserByID(userID);
+            return userDetails;
+        }
 
     }
 }

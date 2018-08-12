@@ -29,5 +29,6 @@ namespace CRM.DataAccessLayer.Providers.DataModel
         public string ShippingPincode { get; set; }
         public string ContactPersonName { get; set; }
         public string ContactPersonNo { get; set; }
+        public string GSTNO { get; set; }
     }
 }

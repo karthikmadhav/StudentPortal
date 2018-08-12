@@ -1,4 +1,5 @@
 ﻿using CRM.BusinessLayer.BusinessModels;
+using CRM.Common.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,8 @@ namespace CRM.BusinessLayer.Interfaces
         bool UpdateCustomer(CustomerDetails CustDetails);
         bool DeleteCustomer(int CustomerId);
         CustomerDetails GetCustomerByID(int custID);
+        int SaveKYC(KYCDetails kycDetails);
+        List<KYCDetails> GetKYCByCustID(int custID);
+
     }
 }

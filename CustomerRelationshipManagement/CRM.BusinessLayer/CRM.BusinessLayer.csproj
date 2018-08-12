@@ -53,11 +53,13 @@
     <Compile Include="BusinessModels\Product.cs" />
     <Compile Include="BusinessModels\QuoteDetails.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Interfaces\ICompanyDetails.cs" />
     <Compile Include="Interfaces\ICustomerDetails.cs" />
     <Compile Include="Interfaces\IIndustryCategory.cs" />
     <Compile Include="Interfaces\ILeadSource.cs" />
     <Compile Include="Interfaces\IProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CompanyService.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\IndustryCategoryService.cs" />
     <Compile Include="Services\LeadSourceService.cs" />

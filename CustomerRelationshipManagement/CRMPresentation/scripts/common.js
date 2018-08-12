@@ -2,12 +2,15 @@
 document.onreadystatechange = function () {
     var state = document.readyState
     if (state == 'interactive') {
-        document.getElementById('contents').style.visibility = "hidden";
+        $('#interactive').style.visibility = "hidden";
+        //document.getElementById('contents').style.visibility = "hidden";
     } else if (state == 'complete') {
         setTimeout(function () {
-            document.getElementById('interactive');
-            document.getElementById('load').style.visibility = "hidden";
-            document.getElementById('contents').style.visibility = "visible";
+            $('#interactive').style.visibility = "hidden";
+            $('#interactive').style.visibility = "visible";
+            //document.getElementById('interactive');
+            //document.getElementById('load').style.visibility = "hidden";
+            //document.getElementById('contents').style.visibility = "visible";
         }, 500);
     }
 }
@@ -62,6 +65,9 @@ function editRoleDetails(roleID) {
         contentType: "application/json; charset=utf-8",
         dataType: "html",
         success: function (response) {
+            //$("#divSuccess").removeClass("divhide");
+            //$("#divSuccess").show();
+            //$("#sMessage").val("Role Updated Successfully.");
             $("#viewRole").html(response);
         },
         failure: function (response) {
@@ -73,6 +79,7 @@ function editRoleDetails(roleID) {
     });
 }
 function addNewRole() {
+    $('#load').show();
     $("#NewRole").show();
     $("#viewRole").hide();
     $.ajax({
@@ -82,6 +89,7 @@ function addNewRole() {
         dataType: "html",
         success: function (response) {
             $("#NewRole").html(response);
+            $('#load').hide();
         },
         failure: function (response) {
             alert(response.responseText);

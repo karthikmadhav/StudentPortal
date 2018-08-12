@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CRM.Common.Models.KYCDetails>
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">KYC Details</h3>
+                </div>
+                @*<div class="overlay">
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </div>*@
+                <div class="box-body" id="content">
+                    @if (Model != null)
+                    {
+                        <table class="table table-bordered table-hover">
+                            <tr>
+                                <th hidden="hidden">
+                                    @Html.DisplayNameFor(model => model.kycID)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DocumentName)
+                                </th>
+                                <th>Action</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td hidden="hidden">
+                                        @Html.DisplayFor(modelItem => item.kycID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DocumentName)
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("OpenDoc", "Customer",new {id=item.kycID})" target="_blank">View</a>
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

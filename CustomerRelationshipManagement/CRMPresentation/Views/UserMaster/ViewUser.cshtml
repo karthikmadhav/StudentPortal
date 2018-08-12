@@ -45,7 +45,7 @@
                 @Html.DisplayNameFor(model => model.UserName)
             </th>
           
-            <th>Action</th>
+            @*<th>Action</th>*@
             </tr>
 @foreach (var item in Model)
 {
@@ -66,11 +66,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
-        <td>
+        @*<td>
             @Html.ActionLink(" ", "EditUser", new { id = item.UserId }, new { @class = "fa fa-pencil" }) |
             @Html.ActionLink(" ", "DeleteUser", new { id = item.UserId }, new { @class = "fa fa-trash-o" })|
             @Html.ActionLink(" ", "UserDetails", new { id = item.UserId }, new { @class = "fa fa-th-list" })
-        </td>
+        </td>*@
     </tr>
 }
 </table>

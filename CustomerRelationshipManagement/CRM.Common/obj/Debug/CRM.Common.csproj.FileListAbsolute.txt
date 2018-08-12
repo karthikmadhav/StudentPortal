@@ -1,5 +1,5 @@
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.Common\bin\Debug\CRM.Common.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.Common\bin\Debug\CRM.Common.pdb
-C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.Common\obj\Debug\CRM.Common.csprojResolveAssemblyReference.cache
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.Common\obj\Debug\CRM.Common.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.Common\obj\Debug\CRM.Common.pdb
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRM.Common\obj\Debug\CRM.Common.csprojResolveAssemblyReference.cache

@@ -37,89 +37,112 @@
                                 <div role="tabpanel" class="tab-pane active" id="Basic"><br />
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="company">Company Name</label>
-                                            @*<p class="text-green">Company Name</p>*@
-                                            @Html.DisplayFor(model => model.CustomerName, new { @class = "text-green" })
+                                            <div><strong>Customer Name</strong></div>
+                                            <div class="text-green font"><strong>@Model.CustomerName</strong></div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="PrimaryPhoneNo">Primary Phone</label>
-                                            @Html.DisplayFor(model => model.PrimaryPhoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div><strong>Primary Phone</strong></div>
+                                            <div class="text-green font"><strong>@Model.PrimaryPhoneNo</strong></div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="PrimaryMailID">Primary Email ID</label>
-                                            @Html.DisplayFor(model => model.PrimaryMailID, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div><strong>Primary Email ID</strong></div>
+                                            <div class="text-green font"><strong>@Model.PrimaryMailID</strong></div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="Website">Website</label>
-                                            @Html.DisplayFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div><strong>Website</strong></div>
+                                            <div class="text-green font"><strong>@Model.Website</strong></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="PersonName">Contact Person Name</label>
-                                            @Html.DisplayFor(model => model.ContactPersonName, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div><strong>Contact Person Name</strong></div>
+                                            <div class="text-green font"><strong>@Model.ContactPersonName</strong></div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="PersonNo">Contact Person No</label>
-                                            @Html.DisplayFor(model => model.ContactPersonNo, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div><strong>Contact Person No</strong></div>
+                                            <div class="text-green font"><strong>@Model.ContactPersonNo</strong></div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="Fax">Fax</label>
-                                            @Html.DisplayFor(model => model.Fax, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div><strong>Fax</strong></div>
+                                            <div class="text-green font"><strong>@Model.Fax</strong></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="Address"><br />
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="BillingAddress">Billing Address</label>
-                                            @Html.DisplayFor(model => model.BillingAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Billing Address</strong></div>
+                                                <div class="text-purple font"><strong>@Model.BillingAddress</strong></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="BillingAddress1">Billing Address Line 1</label>
-                                            @Html.DisplayFor(model => model.BillingAddress1, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Billing Address1</strong></div>
+                                                <div class="text-purple font"><strong>@Model.BillingAddress1</strong></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="BillingCity">Billing City</label>
-                                            @Html.DisplayFor(model => model.BillingCity, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Billing City</strong></div>
+                                                <div class="text-purple font"><strong>@Model.BillingCity</strong></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="BillingState">Billing State</label>
-                                            @Html.DisplayFor(model => model.BillingState, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Billing State</strong></div>
+                                                <div class="text-purple font"><strong>@Model.BillingState</strong></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="BillingCountry">Billing Country</label>
-                                            @Html.DisplayFor(model => model.BillingCountry, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Billing Country</strong></div>
+                                                <div class="text-purple font"><strong>@Model.BillingCountry</strong></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="BillingPincode">Billing Pincode</label>
-                                            @Html.DisplayFor(model => model.BillingPincode, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Billing Pincode</strong></div>
+                                                <div class="text-purple font"><strong>@Model.BillingPincode</strong></div>
+                                            </div>
                                         </div>
                                         </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="ShippingAddress">Shipping Address</label>
-                                            @Html.DisplayFor(model => model.ShippingAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Shipping Address</strong></div>
+                                                <div class="text-blue font"><strong>@Model.ShippingAddress</strong></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="ShippingAddress1">Shipping Address Line1</label>
-                                            @Html.DisplayFor(model => model.ShippingAddress1, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Shipping Address Line1</strong></div>
+                                                <div class="text-blue font"><strong>@Model.ShippingAddress1</strong></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="ShippingCity">Shipping City</label>
-                                            @Html.DisplayFor(model => model.ShippingCity, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Shipping City</strong></div>
+                                                <div class="text-blue font"><strong>@Model.ShippingCity</strong></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="ShippingState">Shipping State</label>
-                                            @Html.DisplayFor(model => model.ShippingState, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Shipping State</strong></div>
+                                                <div class="text-blue font"><strong>@Model.ShippingState</strong></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="ShippingCountry">Shipping Country</label>
-                                            @Html.DisplayFor(model => model.ShippingCountry, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Shipping Country</strong></div>
+                                                <div class="text-blue font"><strong>@Model.ShippingCountry</strong></div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="ShippingPincode">Shipping Pincode</label>
-                                            @Html.DisplayFor(model => model.ShippingPincode, new { htmlAttributes = new { @class = "form-control" } })
+                                            <div class="form-group">
+                                                <div><strong>Shipping Pincode</strong></div>
+                                                <div class="text-blue font"><strong>@Model.ShippingPincode</strong></div>
+                                            </div>
                                         </div>
 
                                         </div>
@@ -137,35 +160,10 @@
                                         <input type="file" name="file" id="file" /><br><br>
                                         <br><br>
                                         @ViewBag.Message
-                                        <table class="table table-bordered table-hover">
-                                            <tr>
-                                                <th>Doc Name</th>
-                                                <th>Doc Type</th>
-                                                <th>View</th>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Company Agrmnt
-                                                </td>
-                                                <td>
-                                                    PDF
-                                                </td>
-                                                <td>
-                                                    <a href="https://www.google.com/" target="someFrame" onclick="loadDoc('C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRMPresentation\compDoc\sample_PDF.PDF')">Comp Agr</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Contract Details
-                                                </td>
-                                                <td>
-                                                    PDF
-                                                </td>
-                                                <td>
-                                                    <a href="" target="_self" onclick="loadDoc('C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRMPresentation\compDoc\sample_PDF.PDF')">Contract</a>
-                                                </td>
-                                            </tr>
-                                            </table>
+                                        <div>
+                                            @{Html.RenderAction("GetKYCDocuments", "Customer");}
+                                        </div>
+                                      
                                             }
 </div>
                                 <div role="tabpanel" class="tab-pane" id="Payments"><br />

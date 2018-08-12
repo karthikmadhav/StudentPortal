@@ -92,11 +92,14 @@
     <Compile Include="DataModel\UserMaster.cs">
       <DependentUpon>CRMModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\ICompanyProvider.cs" />
     <Compile Include="Interfaces\ICustomerProvider.cs" />
     <Compile Include="Interfaces\IIndustryCategoryProvider.cs" />
     <Compile Include="Interfaces\ILeadProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CompanyDetailsProvider.cs" />
     <Compile Include="Providers\CustomerDetailsProvider.cs" />
+    <Compile Include="Providers\DataModel\DLCompanyDetails.cs" />
     <Compile Include="Providers\DataModel\DLCustomerDetails.cs" />
     <Compile Include="Providers\DataModel\DLLeadSource.cs" />
     <Compile Include="Providers\DataModel\DLLIndustryCategory.cs" />

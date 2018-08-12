@@ -57,6 +57,8 @@ namespace CRMPresentation
             container.RegisterType<ILeadSource, LeadSourceService>(new PerResolveLifetimeManager());
             container.RegisterType<IIndustryCategory, IndustryCategoryService>(new PerResolveLifetimeManager());
             container.RegisterType<ICustomerDetails, CustomerService>(new PerResolveLifetimeManager());
+            container.RegisterType<ICompanyDetails, CompanyService>(new PerResolveLifetimeManager());
+
             container.RegisterType<IUserAuthentication, UserAuthenticationService>(new PerResolveLifetimeManager());
             container.RegisterType<IRole, RoleDetailService>(new PerResolveLifetimeManager());
             container.RegisterType<IUserDetails,UserDetailsService>(new PerResolveLifetimeManager());
@@ -73,6 +75,7 @@ namespace CRMPresentation
             container.RegisterType<ILeadProvider, LeadSourceProvider>(new PerResolveLifetimeManager());
             container.RegisterType<IIndustryCategoryProvider, IndustryCategoryProviders>(new PerResolveLifetimeManager());
             container.RegisterType<ICustomerProvider, CustomerDetailsProvider>(new PerResolveLifetimeManager());
+            container.RegisterType<ICompanyProvider, CompanyDetailsProvider>(new PerResolveLifetimeManager());
 
 
 

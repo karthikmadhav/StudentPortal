@@ -200,7 +200,7 @@ namespace CRMPresentation.Controllers
             return PartialView("EditRole", rDetails);
         }
         [HttpPost]
-        public ActionResult EditRole(RoleDetails roleDetails)
+        public ActionResult UpdateRole(RoleDetails roleDetails)
         {
             bool result = false;
             result = _IRole.UpdateRole(roleDetails);

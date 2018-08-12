@@ -160,7 +160,6 @@ C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRMPresentation\bin\Dappe
 C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.csprojResolveAssemblyReference.cache
 C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.dll
 C:\Karthik_Madhavan\POC\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.pdb
-C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.csprojResolveAssemblyReference.cache
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\ApplicationInsights.config
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\roslyn\csc.exe
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -245,5 +244,6 @@ C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPr
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\System.Web.Helpers.xml
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\System.Web.Mvc.xml
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\bin\Dapper.pdb
+C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.csprojResolveAssemblyReference.cache
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.dll
 C:\Users\madhak1\Source\Repos\StudentPortal\CustomerRelationshipManagement\CRMPresentation\obj\Debug\CRMPresentation.pdb

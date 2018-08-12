@@ -1,4 +1,5 @@
-﻿using CRM.DataAccessLayer.Providers.DataModel;
+﻿using CRM.Common.Models;
+using CRM.DataAccessLayer.Providers.DataModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace CRM.DataAccessLayer.Interfaces
         bool UpdateCustomer(DLCustomerDetails CustDetails);
         bool DeleteCustomer(int CustomerId);
         DLCustomerDetails GetCustomerByID(int custID);
+        int SaveKYC(KYCDetails kycDetails);
+        List<KYCDetails> GetKYCByCustID(int custID);
     }
 }

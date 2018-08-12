@@ -296,6 +296,7 @@
     <Content Include="scripts\AngularCode\QuoteData.js" />
     <Content Include="scripts\Chart.js" />
     <Content Include="scripts\Chart.min.js" />
+    <Content Include="scripts\CRM\Company.js" />
     <Content Include="scripts\errors.json" />
     <Content Include="scripts\angular.min.js.map" />
     <Content Include="scripts\angular-touch.min.js.map" />
@@ -1138,6 +1139,9 @@
     <Content Include="Views\MasterSettings\RoleMenuMappingTest.cshtml" />
     <Content Include="Views\UserMaster\NewUser.cshtml" />
     <Content Include="Views\UserMaster\ViewUser.cshtml" />
+    <Content Include="Views\MasterSettings\EditRoleDetails.cshtml" />
+    <Content Include="Views\UserMaster\EditUser.cshtml" />
+    <Content Include="Views\Customer\_KYCDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

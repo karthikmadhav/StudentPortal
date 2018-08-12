@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CRM.Common.Models;
 
 namespace CRM.BusinessLayer.Services
 {
@@ -44,6 +45,7 @@ namespace CRM.BusinessLayer.Services
                 customer.BillingPincode = items.BillingPincode;
                 customer.PrimaryPhoneNo = items.PrimaryPhoneNo;
                 customer.PrimaryMailID = items.PrimaryMailID;
+                customer.GSTNO = items.GSTNO;
                 customerDetails.Add(customer);
             }
             return customerDetails;
@@ -73,6 +75,7 @@ namespace CRM.BusinessLayer.Services
             customer.BillingState = CustDetails.BillingState;
             customer.BillingCountry = CustDetails.BillingCountry;
             customer.BillingPincode = CustDetails.BillingPincode;
+            customer.GSTNO = CustDetails.GSTNO;
             result = _customerProvider.SaveCustomer(customer);
             return result;
         }
@@ -101,6 +104,7 @@ namespace CRM.BusinessLayer.Services
             customer.BillingState = CustDetails.BillingState;
             customer.BillingCountry = CustDetails.BillingCountry;
             customer.BillingPincode = CustDetails.BillingPincode;
+            customer.GSTNO = CustDetails.GSTNO;
             result = _customerProvider.UpdateCustomer(customer);
             return result;
         }
@@ -135,7 +139,19 @@ namespace CRM.BusinessLayer.Services
                 customer.PrimaryPhoneNo = items.PrimaryPhoneNo;
                 customer.PrimaryMailID = items.PrimaryMailID;
                 customer.Fax = items.Fax;
+                customer.GSTNO = items.GSTNO;
             return customer;
+        }
+
+        public int SaveKYC(KYCDetails kycDetails)
+        {
+            return _customerProvider.SaveKYC(kycDetails);
+        }
+
+        public List<KYCDetails> GetKYCByCustID(int custID)
+        {
+            return _customerProvider.GetKYCByCustID(custID);
+
         }
     }
 }

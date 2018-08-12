@@ -52,8 +52,10 @@
                                     <label for="AnnualRevenue">Contact Person<i class="text-danger">*</i></label>
                                     @Html.EditorFor(model => model.ContactPersonName, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.ContactPersonName, "", new { @class = "text-danger" })
-
-
+                                </div>
+                                <div class="form-group">
+                                    <label for="GSTNO">GST No:</label>
+                                    @Html.EditorFor(model => model.GSTNO, new { htmlAttributes = new { @class = "form-control" } })
                                 </div>
 
                             </div>
@@ -84,6 +86,10 @@
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Address Information</h3>
+                        <div id="chkadd" class="checkboxalign">
+                            <input type="checkbox" id="CopyAddress" name="CopyAddress" title="Select All" onchange="toggleCheckbox(this)" />
+                            <label for="CopyAddress">Copy From Billing Address</label>
+                        </div>
                     </div>
                         <div class="box-body">
                             <div class="col-md-5">
@@ -130,7 +136,7 @@
 
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <label for="ShippingAddress">Shipping gAddress</label>
+                                    <label for="ShippingAddress">Shipping Address</label>
                                     @Html.EditorFor(model => model.ShippingAddress, new { htmlAttributes = new { @class = "form-control" } })
                                 </div>
                                 <div class="form-group">
@@ -161,8 +167,14 @@
             </div>
                 </div>
 </section>
-
-            }
+<script src="~/scripts/CRM/Company.js"></script>
+<style type="text/css">
+    .checkboxalign {
+        margin-left: 460px;
+        margin-top: -22px;
+    }
+</style>
+}
 
            
 

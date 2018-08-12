@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    @Html.Hidden("hdnIsUserAlrdyAvailable")
     <section class="content-header">
         <h1></h1>
         <ol class="breadcrumb">
@@ -27,9 +27,9 @@
                         <h3 class="box-title">New User</h3>
                         <input type="submit" value="Save" class="btn btn-success pull-right" />
                     </div>
-                    <div id="load" class="overlay">
+                    @*<div id="load" class="overlay">
                         <i class="fa fa-refresh fa-spin"></i>
-                    </div>
+                    </div>*@
                     <div class="box-body" id="content">
                         <div class="col-md-5">
                             <div class="form-group">
@@ -75,9 +75,10 @@
             contentType: "application/json; charset=utf-8",
             dataType: "html",
             success: function (response) {
-                debugger;
-                if (response == "True")
-                    alert("User Id Already Available")
+                if (response == "True") {
+                    alert("User Id Already Available");
+                    $("hdnIsUserAlrdyAvailable").value = true;
+                }
             },
             failure: function (response) {
                 alert(response.responseText);

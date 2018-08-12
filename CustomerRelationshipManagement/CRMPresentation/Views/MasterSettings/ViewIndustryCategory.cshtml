@@ -21,22 +21,22 @@
               <div class="box box-success">
                   <div class="box-header">
                       <h3 class="box-title">Industry Category</h3>
-                      @Html.ActionLink("Create New", "NewIndustryCategory", "MasterSettings", null, new { @class = "btn btn-primary pull-right" })
+                      @Html.ActionLink("New", "NewIndustryCategory", "MasterSettings", null, new { @class = "btn btn-primary pull-right" })
                   </div>
-                  <div class="overlay" id="load">
-                      <i class="fa fa-refresh fa-spin"></i>
+                  <div class="" id="load">
+                      @*<i class="fa fa-refresh fa-spin"></i>*@
                   </div>
                   <div class="box-body" id="contents">
                     
                       <table class="table table-bordered table-hover col-xs-9">
-                          <tr>
+                          <tr style="">
                               <th>
                                   @Html.DisplayNameFor(model => model.IndustryCategoryName)
                               </th>
                               <th>
                                   @Html.DisplayNameFor(model => model.Status)
                               </th>
-                              <th class="col-md-3">@Html.DisplayName("Action")</th>
+                              @*<th class="col-md-3">@Html.DisplayName("Action")</th>*@
                           </tr>
 
                           @foreach (var item in Model)
@@ -48,13 +48,13 @@
                                   <td>
                                       @Html.DisplayFor(modelItem => item.Status)
                                   </td>
-                                  <td>
+                                  @*<td>
                                      
                                        @Html.ActionLink(" ", "EditIndustry", new { id = item.IndustryCategoryId },new { @class = "fa fa-pencil" }) |
                                       @Html.ActionLink(" ", "DeleteIndustry", new { id = item.IndustryCategoryId }, new { @class = "fa fa-trash-o" })
 
-                                      @*@Html.ActioxnLink(" ", "DeleteIndustry", new { id = item.IndustryCategoryId },new { @class = "fa fa-trash-o", data_toggle = "modal", data_target = "#modal-default", data_whatever = "@item.IndustryCategoryId", onclick = "deleteConfirmation();" })*@
-                                  </td>
+                                      @Html.ActioxnLink(" ", "DeleteIndustry", new { id = item.IndustryCategoryId },new { @class = "fa fa-trash-o", data_toggle = "modal", data_target = "#modal-default", data_whatever = "@item.IndustryCategoryId", onclick = "deleteConfirmation();" })
+                                  </td>*@
                               </tr>
                           }
 

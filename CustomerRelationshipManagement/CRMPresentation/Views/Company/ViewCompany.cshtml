@@ -23,9 +23,9 @@
                     <h3 class="box-title">View Company</h3>
                     @Html.ActionLink("Create New", "NewCompany", "Company", null, new { @class = "btn btn-primary pull-right" })
                 </div>
-                <div class="overlay" id="load">
+                @*<div class="overlay" id="load">
                     <i class="fa fa-refresh fa-spin"></i>
-                </div>
+                </div>*@
                 <div class="box-body" id="contents">
                     @if (Model != null)
                     {
